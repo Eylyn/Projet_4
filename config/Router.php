@@ -24,9 +24,17 @@ class Router
     {
         $route = $this->request->getGet()->get('route');
         try {
-            $this->frontController->home();
+            if (isset($route)) {
+                if ($route === 'episode') {
+                    $this->frontController->episode($this->request->getGet()->get('episodeId'));
+                } else {
+                    $this->errorController->errorNotFound();
+                }
+            } else {
+                $this->frontController->home();
+            }
         } catch (Exception $e) {
-            $this->errorController->errorServer;
+            $this->errorController->errorServer();
         }
     }
 }
