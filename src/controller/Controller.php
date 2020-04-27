@@ -14,6 +14,7 @@ abstract class Controller
     protected $view;
     private $request;
     protected $get;
+    protected $session;
 
     public function __construct()
     {
@@ -22,5 +23,6 @@ abstract class Controller
         $this->view = new View();
         $this->request = new Request();
         $this->get = $this->request->getGet();
+        $this->session = $this->request->getSession();;
     }
 }

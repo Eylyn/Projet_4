@@ -10,11 +10,12 @@ class View
     private $title;
     private $style;
     private $request;
-
+    private $session;
 
     public function __construct()
     {
         $this->request = new Request();
+        $this->session = $this->request->getSession();
     }
 
     public function render($template, $data = [])
@@ -24,8 +25,9 @@ class View
         $view = $this->renderFile('../Projet_4/templates/base.php', [
             'title' => $this->title,
             'style' => $this->style,
-            'content' => $content
-        ]);
+            'content' => $content,
+            'session' => $this->session
+            ]);
         echo $view;
     }
 
