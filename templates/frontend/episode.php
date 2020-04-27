@@ -10,3 +10,17 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
         <p><?= htmlspecialchars($episode->getCreatedAt()); ?></p>
         <p><?= htmlspecialchars($episode->getLikes()); ?></p>
     </div>
+    <div>
+        <h3>Commentaires</h3>
+        <?php
+        foreach ($comments as $comment) {
+            ?>
+            <h4><?= htmlspecialchars($comment->getPseudo()); ?></h4>
+            <p><?= htmlspecialchars($comment->getContent()); ?></p>
+            <p>Posté le <?= htmlspecialchars($comment->getCreatedAt()); ?></p>
+            <p><?= htmlspecialchars($comment->isFlag()); ?></p>
+        <?php
+        }
+        ?>
+    </div>
+    <a href="../Projet_4/index.php">Retour à l'accueil</a>

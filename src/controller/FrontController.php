@@ -17,8 +17,10 @@ class FrontController extends Controller
     public function episode($episodeId)
     {
         $episode = $this->episodeDAO->getEpisode($episodeId);
+        $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
         return $this->view->render('frontend/episode', [
-            'episode' => $episode
+            'episode' => $episode,
+            'comments' => $comments
         ]);
     }
 }
