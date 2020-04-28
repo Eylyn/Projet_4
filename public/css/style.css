@@ -1,7 +1,57 @@
-p
+:root
 {
-    color: red;
+    --blue : rgb(62, 152, 153);
+    --beige: rgb(205, 198, 192);
+    --rose: rgb(166, 117,147);
+    --brown: rgb(92, 68, 84);
+    --bluegreen: rgb(30, 124, 149);
+    --darkgreyblue: rgb(64, 60, 83);
+    --darkbluegreen: rgb(1, 57, 71);
+    --titles : 'Cabin Sketch', sans-serif;
+    --bodyFont : 'Lato', sans-serif;
 }
-@media (prefers-color-scheme : dark) {
-    
+
+h1
+{
+    font-family: var(--titles);
+    font-weight: 700;
+    font-size: 40px;
+    color: var(--darkbluegreen);
+    text-shadow: var(--brown) 2px 2px 5px;
 }
+h2, h2 a{
+    font-family: var(--titles);
+    font-weight: 400;
+    font-size: 25px;
+    color: var(--blue);
+    text-shadow: var(--rose) 2px 2px 3px;
+    text-decoration: none !important;
+}
+
+body {
+    background-color: var(--beige);
+    font-family: var(--bodyFont);
+    font-size: 16px;
+    color: var(--darkgreyblue);
+}
+
+a:visited {
+    color: var(--brown) ;
+    text-shadow: var(--blue) 2px 2px 3px;
+}
+/*@media (prefers-color-scheme : dark) {
+    h1 {
+
+        color: var(--beige);
+    }
+    h2 {
+
+        color: var(--blue);
+    }
+    body {
+        background-color: var(--darkbluegreen);
+    }
+    body p {
+        color: var(--rose);
+    }
+}*/
