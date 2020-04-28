@@ -18,7 +18,6 @@ h1
     font-size: 40px;
     color: var(--darkbluegreen);
     text-shadow: var(--brown) 2px 2px 5px;
-    text-decoration: none;
 }
 h2, h2 a{
     font-family: var(--titles);
@@ -26,6 +25,7 @@ h2, h2 a{
     font-size: 27px;
     color: var(--blue);
     text-shadow: var(--rose) 1px 1px 3px;
+    text-decoration: none !important;
 }
 h3 {
     font-family: var(--titles);

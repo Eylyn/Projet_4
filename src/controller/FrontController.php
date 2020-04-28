@@ -9,8 +9,10 @@ class FrontController extends Controller
     public function home()
     {
         $episodes = $this->episodeDAO->getEpisodes();
+        $users = $this->userDAO->getUsers();
         return $this->view->render('frontend/home', [
-            'episodes' => $episodes
+            'episodes' => $episodes,
+            'users' => $users
         ]);
     }
 

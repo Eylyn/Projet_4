@@ -27,6 +27,16 @@ h2, h2 a{
     text-shadow: var(--rose) 2px 2px 3px;
     text-decoration: none !important;
 }
+h3 {
+    font-family: var(--titles);
+    font-size: 18px;
+    color: var(--bluegreen);
+}
+h4 {
+    font-family: var(--titles);
+    color: var(--brown);
+    font-size: 15px;
+}
 
 body {
     background-color: var(--beige);
@@ -34,24 +44,36 @@ body {
     font-size: 16px;
     color: var(--darkgreyblue);
 }
-
+a {
+    color: var(--blue);
+}
 a:visited {
     color: var(--brown) ;
     text-shadow: var(--blue) 2px 2px 3px;
 }
-/*@media (prefers-color-scheme : dark) {
+@media (prefers-color-scheme : dark) {
     h1 {
-
         color: var(--beige);
     }
-    h2 {
-
+    h2, h2 a {
         color: var(--blue);
+        text-shadow: var(--brown) 2px 2px 3px;
+    }
+    h3 {
+        color: var(--bluegreen);
+    }
+    h4 {
+        color: var(--rose);
     }
     body {
         background-color: var(--darkbluegreen);
+        color: var(--brown);
     }
-    body p {
-        color: var(--rose);
+    a {
+        color: var(--darkgreyblue);
     }
-}*/
+    a:visited {
+        color: var(--brown) ;
+        text-shadow: var(--blue) 2px 2px 3px;
+    }
+}
