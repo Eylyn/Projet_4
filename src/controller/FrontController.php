@@ -9,10 +9,8 @@ class FrontController extends Controller
     public function home()
     {
         $episodes = $this->episodeDAO->getEpisodes();
-        $users = $this->userDAO->getUsers();
         return $this->view->render('frontend/home', [
             'episodes' => $episodes,
-            'users' => $users
         ]);
     }
 
@@ -24,5 +22,35 @@ class FrontController extends Controller
             'episode' => $episode,
             'comments' => $comments
         ]);
+    }
+
+    public function register(Parameter $post)
+    {
+        if ($post->get('submit')) {
+            $this->userDAO->register($post);
+            $this->session->set('register', 'Votre inscription a bien été effectuée <br>');
+            header('Location: ../Projet_4/index.php');
+        }
+        return $this->view->render('frontend/register');
+    }
+
+    public function login(Parameter $post)
+    {
+        if ($post->get('submit')) {
+            $result = $this->userDAO->login($post);
+            if ($result && $result['isPasswordValid']) {
+                $this->session->set('login', 'Content de vous revoir');
+                $this->session->set('id', $result['result']['id']);
+                $this->session->set('pseudo', $post->get('pseudo'));
+                header('Location: ../Projet_4/index.php');
+            }
+            else{
+                $this->session->set('error_login', 'Le pseudo ou le mot de passe sont incorrects');
+                return $this->view->render('frontend/login', [
+                    'post' => $post
+                ]);
+            }
+        }
+        return $this->view->render('frontend/login');
     }
 }

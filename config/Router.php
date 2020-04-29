@@ -25,10 +25,18 @@ class Router
         $route = $this->request->getGet()->get('route');
         try {
             if (isset($route)) {
-                if ($route === 'episode') {
-                    $this->frontController->episode($this->request->getGet()->get('episodeId'));
-                } else {
-                    $this->errorController->errorNotFound();
+                switch ($route) {
+                    case "episode":
+                        $this->frontController->episode($this->request->getGet()->get('episodeId'));
+                        break;
+                    case 'register':
+                        $this->frontController->register($this->request->getPost());
+                        break;
+                    case 'login':
+                        $this->frontController->login($this->request->getPost());
+                        break;
+                    default:
+                        $this->errorController->errorNotFound();
                 }
             } else {
                 $this->frontController->home();

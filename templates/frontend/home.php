@@ -3,6 +3,12 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 
 <h1>Billet Simple pour l'Alaska</h1>
 
+<?= $this->session->show('register'); ?>
+<?= $this->session->show('login'); ?>
+
+<a href="../Projet_4/index.php?route=register">Inscription</a>
+<a href="../Projet_4/index.php?route=login">Connexion</a>
+
 <?php
 foreach ($episodes as $episode) {
     ?>

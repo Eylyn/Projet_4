@@ -73,7 +73,7 @@ a:visited {
         color: var(--darkgreyblue);
     }
     a:visited {
-        color: var(--brown) ;
+        color: var(--rose) ;
         text-shadow: var(--blue) 2px 2px 3px;
     }
 }
