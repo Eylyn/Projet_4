@@ -42,6 +42,8 @@ class FrontController extends Controller
                 $this->session->set('login', 'Content de vous revoir');
                 $this->session->set('id', $result['result']['id']);
                 $this->session->set('pseudo', $post->get('pseudo'));
+                $this->session->set('createdAt', $result['result']['createdAt']);
+                $this->session->set('lastConnection', $result['result']['lastConnection']);
                 header('Location: ../Projet_4/index.php');
             }
             else{
@@ -52,5 +54,10 @@ class FrontController extends Controller
             }
         }
         return $this->view->render('frontend/login');
+    }
+
+    public function profile()
+    {
+        return $this->view->render('frontend/profile');
     }
 }

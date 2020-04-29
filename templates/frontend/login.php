@@ -1,4 +1,4 @@
-<?php $this->title = " Login";
+<?php $this->title = " Connexion";
 $this->style = '../Projet_4/public/css/style' ; ?>
 
 <h1>Connection</h1>

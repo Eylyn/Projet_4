@@ -8,6 +8,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 
 <a href="../Projet_4/index.php?route=register">Inscription</a>
 <a href="../Projet_4/index.php?route=login">Connexion</a>
+<a href="../Projet_4/index.php?route=profile">Mon profil</a>
 
 <?php
 foreach ($episodes as $episode) {

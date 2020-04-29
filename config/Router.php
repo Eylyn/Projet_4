@@ -35,6 +35,9 @@ class Router
                     case 'login':
                         $this->frontController->login($this->request->getPost());
                         break;
+                    case 'profile':
+                        $this->frontController->profile($this->request->getGet());
+                        break;
                     default:
                         $this->errorController->errorNotFound();
                 }

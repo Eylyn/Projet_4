@@ -10,6 +10,7 @@ class User
     private $email;
     private $role;
     private $createdAt;
+    private $lastConnection;
 
     /**
      * @return int
@@ -89,6 +90,22 @@ class User
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+        /**
+     * @return \DateTime
+     */
+    public function getLastConnection()
+    {
+        return $this->lastConnection;
+    }
+
+    /**
+     * @param \DateTime $lastConnection
+     */
+    public function setLastConnection($lastConnection)
+    {
+        $this->lastConnection = $lastConnection;
     }
 
     /**
