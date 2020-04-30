@@ -3,6 +3,7 @@
 namespace App\config;
 
 use App\src\controller\FrontController;
+use App\src\controller\BackController;
 use App\src\controller\ErrorController;
 use Exception;
 
@@ -10,6 +11,7 @@ class Router
 
 {
     private $frontController;
+    private $backController;
     private $errorController;
     private $request;
 
@@ -17,6 +19,7 @@ class Router
     {
         $this->request = new Request();
         $this->frontController = new FrontController();
+        $this->backController = new BackController();
         $this->errorController = new ErrorController();
     }
 
@@ -37,6 +40,9 @@ class Router
                         break;
                     case 'profile':
                         $this->frontController->profile($this->request->getGet());
+                        break;
+                    case 'administration':
+                        $this->backController->administration();
                         break;
                     default:
                         $this->errorController->errorNotFound();

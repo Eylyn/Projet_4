@@ -14,6 +14,7 @@ class EpisodeDAO extends DAO
         $episode->setTitle($row['title']);
         $episode->setContent($row['content']);
         $episode->setCreatedAt($row['createdAt']);
+        $episode->setComments($row['comments']);
         $episode->setLikes($row['likes']);
 
         return $episode;
@@ -21,7 +22,7 @@ class EpisodeDAO extends DAO
 
     public function getEpisodes()
     {
-        $sql = 'SELECT id, title, content, createdAt, likes FROM episode ORDER BY id DESC';
+        $sql = 'SELECT id, title, content, createdAt, comments, likes FROM episode ORDER BY id DESC';
         $result = $this->createQuery($sql);
         $episodes = [];
         foreach ($result as $row) {
@@ -34,7 +35,7 @@ class EpisodeDAO extends DAO
 
     public function getEpisode($episodeId)
     {
-        $sql = 'SELECT id, title, content, createdAt, likes FROM episode WHERE id = ?';
+        $sql = 'SELECT id, title, content, createdAt, comments, likes FROM episode WHERE id = ?';
         $result = $this->createQuery($sql, [$episodeId]);
         $episode = $result->fetch();
         $result->closeCursor();

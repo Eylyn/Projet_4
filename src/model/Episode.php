@@ -9,6 +9,7 @@ class Episode
     private $content;
     private $createdAt;
     private $likes;
+    private $comments;
 
     public function getId()
     {
@@ -50,6 +51,16 @@ class Episode
         $this->createdAt = $createdAt;
     }
 
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+    }
+    
     public function getLikes()
     {
         return $this->likes;
