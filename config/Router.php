@@ -44,6 +44,9 @@ class Router
                     case 'administration':
                         $this->backController->administration();
                         break;
+                    case 'addEpisode':
+                        $this->backController->addEpisode($this->request->getPost());
+                    break;
                     default:
                         $this->errorController->errorNotFound();
                 }

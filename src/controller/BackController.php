@@ -16,4 +16,17 @@ class BackController extends Controller
         ]);
 
     }
+
+    public function addEpisode(Parameter $post)
+    {
+        if ($post->get('submit')) {
+            $this->episodeDAO->addEpisode($post);
+            $this->session->set('addEpisode', 'Le nouvel épisode à bien été ajouté');
+            header('Location: ../Projet_4/index.php?route=administration');
+            return $this->view->render('backend/addEpisode', [
+                'post' => $post
+            ]);
+        }
+        return $this->view->render('backend/addEpisode');
+    }
 }

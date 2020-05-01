@@ -41,4 +41,10 @@ class EpisodeDAO extends DAO
         $result->closeCursor();
         return $this->buildObject($episode);
     }
+
+    public function addEpisode(Parameter $post)
+    {
+        $sql = 'INSERT INTO episode(title, content, createdAt) VALUES (?, ?, NOW())';
+        $this->createQuery($sql, [$post->get('title'), $post->get('content')]);
+    }
 }

@@ -15,8 +15,8 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 foreach ($episodes as $episode) {
     ?>
     <div>
-        <h2><a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId()); ?>"><?= htmlspecialchars($episode->getTitle()); ?></a></h2>
-        <p><?= htmlspecialchars($episode->getContent()); ?></p>
+        <a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId()); ?>"><?= $episode->getTitle(); ?></a>
+        <div><?= $episode->getContent(); ?></div>
         <p> Sorti le : <?= htmlspecialchars($episode->getCreatedAt()); ?></p>
         <p>Likes : <?= htmlspecialchars($episode->getLikes()); ?></p>
     </div>

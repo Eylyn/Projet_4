@@ -3,6 +3,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 <h1>Administration</h1>
 
 <h2>Episodes</h2>
+<a href="../Projet_4/index.php?route=addEpisode">Publier un nouvel Episode</a>
 <table>
     <tr>
         <td>Titre</td>
