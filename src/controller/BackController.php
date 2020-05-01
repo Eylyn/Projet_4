@@ -29,4 +29,25 @@ class BackController extends Controller
         }
         return $this->view->render('backend/addEpisode');
     }
+
+    public function editEpisode(Parameter $post, $episodeId)
+    {
+        $episode = $this->episodeDAO->getEpisode($episodeId);
+        if ($post->get('submit')) {
+            $this->episodeDAO->editEpisode($post, $episodeId);
+            $this->session->set('editEpisode', 'L\'article a bien été mis à jour');
+            header('Location: ../Projet_4/index.php?route=administration');
+
+            return $this->view->render('backend/editEpisode', [
+                'post' => $post
+            ]);
+        }
+        $post->set('id', $episode->getId());
+        $post->set('title', $episode->getTitle());
+        $post->set('content', $episode->getContent());
+
+        return $this->view->render('backend/editEpisode', [
+            'post' => $post
+        ]);
+    }
 }

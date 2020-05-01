@@ -5,11 +5,12 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
 
 
     <div>
-        <h2><?= htmlspecialchars($episode->getTitle()); ?></h2>
-        <p><?= htmlspecialchars($episode->getContent()); ?></p>
+        <?= $episode->getTitle(); ?>
+        <?= $episode->getContent(); ?>
         <p><?= htmlspecialchars($episode->getCreatedAt()); ?></p>
         <p><?= htmlspecialchars($episode->getLikes()); ?></p>
     </div>
+    <a href="../Projet_4/index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
     <div>
         <h3>Commentaires</h3>
         <?php

@@ -46,7 +46,10 @@ class Router
                         break;
                     case 'addEpisode':
                         $this->backController->addEpisode($this->request->getPost());
-                    break;
+                        break;
+                    case 'editEpisode':
+                        $this->backController->editEpisode($this->request->getPost(), $this->request->getGet()->get('episodeId'));
+                        break;
                     default:
                         $this->errorController->errorNotFound();
                 }

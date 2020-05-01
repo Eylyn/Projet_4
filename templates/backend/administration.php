@@ -1,5 +1,8 @@
 <?php $this->title = "Administration";
 $this->style = '../Projet_4/public/css/style' ; ?>
+<?= $this->session->show('addEpisode'); ?>
+<?= $this->session->show('editEpisode'); ?>
+
 <h1>Administration</h1>
 
 <h2>Episodes</h2>
@@ -26,7 +29,9 @@ $this->style = '../Projet_4/public/css/style' ; ?>
         <td><?= htmlspecialchars($episode->getLikes()); ?></td>
         <td></td>
         <td></td>
-        <td>Modifier Supprimer</td>
+        <td>
+            <a href="../Projet_4/index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
+        </td>
     </tr>
     <?php
     }
