@@ -6,10 +6,23 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 <?= $this->session->show('register'); ?>
 <?= $this->session->show('login'); ?>
 
-<a href="../Projet_4/index.php?route=register">Inscription</a>
-<a href="../Projet_4/index.php?route=login">Connexion</a>
-<a href="../Projet_4/index.php?route=profile">Mon profil</a>
+
+
+
+<?php
+if ($this->session->get('pseudo')) {
+?>
+    <a href="../Projet_4/index.php?route=profile">Mon profil</a>
+    <a href="../Projet_4/index.php?route=logout">Déconnexion</a>
 <a href="../Projet_4/index.php?route=administration">Administration</a>
+<?php
+}
+else {?>
+    <a href="../Projet_4/index.php?route=register">Inscription</a>
+<a href="../Projet_4/index.php?route=login">Connexion</a>
+<?php
+}
+?>
 
 <?php
 foreach ($episodes as $episode) {

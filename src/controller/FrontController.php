@@ -6,6 +6,18 @@ use App\config\Parameter;
 
 class FrontController extends Controller
 {
+
+    private function checkedLogin()
+    {
+        if (!$this->session->get('pseudo')) {
+            $this->session->set('needLogin', 'Vous devez être connecté pour accéder à cette page');
+            header('Location: ../Projet_4/index.php?route=login');
+        }
+        else {
+            return true;
+        }
+    }
+
     public function home()
     {
         $episodes = $this->episodeDAO->getEpisodes();
@@ -60,4 +72,15 @@ class FrontController extends Controller
     {
         return $this->view->render('frontend/profile');
     }
+
+    public function logout()
+    {
+        if ($this->checkedLogin()) {
+            $this->session->stop();
+            $this->session->start();
+            $this->session->set('logout', 'A bientôt');
+            header('Location: ../Projet_4/index.php');
+        }
+    }
+
 }
