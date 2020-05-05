@@ -22,7 +22,6 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
             <p><?= htmlspecialchars($comment->getContent()); ?></p>
             <p>Posté le <?= htmlspecialchars($comment->getCreatedAt()); ?></p>
             <p><?= htmlspecialchars($comment->isFlag()); ?></p>
-            <a href="../Projet_4/index.php?route=editComment&commentId=<?= $comment->getId(); ?>&episodeId=<?= $episode->getId(); ?>">Modifier le commentaire</a>
         <?php
         }
         ?>

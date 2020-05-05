@@ -45,15 +45,6 @@ class CommentDAO extends DAO
     public function addComment(Parameter $post, $episodeId)
     {
         $sql = 'INSERT INTO comment(pseudo, content, createdAt, episode_id, moderate, flag) VALUES(?, ?, NOW(), ?, ?, ?)';
-        $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), $episodeId, 0, 0]);
-    }
-
-    public function editComment(Parameter $post, $commentId)
-    {
-        $sql = 'UPDATE comment SET content=:content WHERE id=:commentId';
-        $this->createQuery($sql, [
-            'content' => $post->get('content'),
-            'commentId' => $commentId
-        ]);
+        $this->createQuery($sql, [strip_tags($post->get('pseudo')), strip_tags($post->get('content')), $episodeId, 0, 0]);
     }
 }
