@@ -57,4 +57,10 @@ class EpisodeDAO extends DAO
             'episodeId' => $episodeId
         ]);
     }
+
+    public function setLikes($episodeId)
+    {
+        $sql = 'UPDATE episode SET likes = likes+1 WHERE id = ?';
+        $this->createQuery($sql, [$episodeId]);
+    }
 }

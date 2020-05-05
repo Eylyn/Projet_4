@@ -47,6 +47,9 @@ class Router
                     case 'logout':
                         $this->frontController->logout();
                         break;
+                    case 'setLikes':
+                        $this->frontController->setLikes($this->request->getGet()->get('episodeId'));
+                        break;
                     case 'addComment':
                         $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('episodeId'));
                         break;

@@ -97,6 +97,19 @@ class FrontController extends Controller
             header('Location: ../Projet_4/index.php');
         }
     }
+
+    public function setLikes($episodeId)
+    {
+        $this->episodeDAO->setLikes($episodeId);
+
+        $episode = $this->episodeDAO->getEpisode($episodeId);
+        $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
+        return $this->view->render('frontend/episode', [
+            'episode' => $episode,
+            'comments' => $comments
+        ]);
+    }
+
     public function addComment(Parameter $post, $episodeId)
     {
         if ($post->get('submit')) {

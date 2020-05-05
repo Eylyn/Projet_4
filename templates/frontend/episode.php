@@ -10,6 +10,7 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
         <?= htmlspecialchars_decode($episode->getContent()); ?>
         <p><?= htmlspecialchars($episode->getCreatedAt()); ?></p>
         <p><?= htmlspecialchars($episode->getLikes()); ?></p>
+        <a href="../Projet_4/index.php?route=setLikes&episodeId=<?= $episode->getId(); ?>">Like</a>
     </div>
     <a href="../Projet_4/index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
     <div>
