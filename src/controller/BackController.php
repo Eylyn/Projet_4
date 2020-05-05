@@ -9,10 +9,12 @@ class BackController extends Controller
     {
         $episodes = $this->episodeDAO->getEpisodes();
         $users = $this->userDAO->getUsers();
+        $comments = $this->commentDAO->getFlagged();
 
         return $this->view->render("backend/administration", [
             'episodes' => $episodes,
-            'users' => $users
+            'users' => $users,
+            'comments' => $comments
         ]);
 
     }

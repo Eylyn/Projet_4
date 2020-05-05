@@ -7,6 +7,7 @@ class Comment
     private $id;
     private $pseudo;
     private $content;
+    private $episodeId;
     private $createdAt;
     private $moderate;
     private $flag;
@@ -39,6 +40,16 @@ class Comment
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    public function getEpisodeId()
+    {
+        return $this->episodeId;
+    }
+
+    public function setEpisodeId($episodeId)
+    {
+        $this->episodeId = $episodeId;
     }
 
     public function getCreatedAt()

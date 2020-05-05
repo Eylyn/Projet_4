@@ -46,6 +46,22 @@ $this->style = '../Projet_4/public/css/style' ; ?>
         <td>Contenu</td>
         <td>Action</td>
     </tr>
+    <?php
+    foreach ($comments as $comment) {
+    ?>
+    <tr>
+        <td><a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars( $comment->getEpisodeId()); ?>"></a></td>
+        <td><?=htmlspecialchars($comment->getPseudo()); ?></td>
+        <td><?= htmlspecialchars($comment->getCreatedAt()); ?></td>
+        <td><?= substr(htmlspecialchars($comment->getContent()), 0, 150); ?></td>
+        <td>
+            Désignaler <br>
+            Supprimer le commentaire
+        </td>
+    </tr>
+    <?php
+    }
+    ?>
 </table>
 <h2>Membres</h2>
 <table>
