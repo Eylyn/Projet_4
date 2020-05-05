@@ -113,4 +113,18 @@ class FrontController extends Controller
             ]);
         }
     }
+
+    public function setFlag($commentId, $episodeId)
+    {
+        $this->commentDAO->setFlag($commentId);
+        $this->session->set('setFlag', 'Votre signalement à été pris en compte');
+        header('Location: ../Projet_4/index.php?route=episode&episodeId=' .$episodeId);
+
+        $episode = $this->episodeDAO->getEpisode($episodeId);
+        $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
+        return $this->view->render('frontend/episode', [
+            'episode' => $episode,
+            'comments' => $comments
+        ]);
+    }
 }

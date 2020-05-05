@@ -3,6 +3,7 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
 
 <h1>Billet Simple pour l'Alaska</h1>
 
+<?= $this->session->show('setFlag'); ?><br>
 
     <div>
         <?= htmlspecialchars_decode($episode->getTitle()); ?>
@@ -22,6 +23,7 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
             <p><?= htmlspecialchars($comment->getContent()); ?></p>
             <p>Posté le <?= htmlspecialchars($comment->getCreatedAt()); ?></p>
             <p><?= htmlspecialchars($comment->isFlag()); ?></p>
+            <a href="../Projet_4/index.php?route=setFlag&commentId=<?= $comment->getId(); ?>&episodeId=<?= $episode->getId(); ?>">Signaler</a>
         <?php
         }
         ?>
