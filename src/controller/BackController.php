@@ -52,4 +52,11 @@ class BackController extends Controller
             'post' => $post
         ]);
     }
+
+    public function unflag($commentId)
+    {
+        $this->commentDAO->unflag($commentId);
+        $this->session->set('unflag', 'Le commentaire n°'.$commentId. 'a bien été désignalé');
+        header('Location: ../Projet_4/index.php?route=administration');
+    }
 }

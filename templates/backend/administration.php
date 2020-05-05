@@ -55,7 +55,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
         <td><?= htmlspecialchars($comment->getCreatedAt()); ?></td>
         <td><?= substr(htmlspecialchars($comment->getContent()), 0, 150); ?></td>
         <td>
-            Désignaler <br>
+            <a href="../Projet_4/index.php?route=unflag&commentId=<?= $comment->getId(); ?>">Désignaler</a>  <br>
             Supprimer le commentaire
         </td>
     </tr>
