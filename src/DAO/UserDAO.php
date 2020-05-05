@@ -50,16 +50,28 @@ class UserDAO extends DAO
         }
     }
 
-    public function login(Parameter $post)
+    public function isPasswordValid(Parameter $post, $pseudo, $name)
     {
-        $sql = 'SELECT id, password, role_id, DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, DATE_FORMAT(lastConnection, \'%d/%m/%Y à %Hh%imin\') as lastConnection FROM users WHERE pseudo = ?';
-        $data = $this->createQuery($sql, [$post->get('pseudo')]);
+        $sql = 'SELECT password FROM users WHERE pseudo = ?';
+        $data = $this->createQuery($sql, [$pseudo->get('pseudo')]);
+        
         $result = $data->fetch();
-        $isPasswordValid = password_verify($post->get('password'), $result['password']);
-        return[
-            'result' => $result,
-            'isPasswordValid' => $isPasswordValid
-        ];
+        var_dump($result);
+        $isPasswordValid = password_verify($post->get($name), $result['password']);
+        return $isPasswordValid;
     }
 
+    public function login(Parameter $post)
+    {
+        $sql = 'SELECT id, role_id, DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, DATE_FORMAT(lastConnection, \'%d/%m/%Y à %Hh%imin\') as lastConnection FROM users WHERE pseudo = ?';
+        $data = $this->createQuery($sql, [$post->get('pseudo')]);
+        $result = $data->fetch();
+        return $result;
+    }
+
+    public function updatePassword(Parameter $post, $pseudo)
+    {
+        $sql = 'UPDATE users SET password = ? WHERE pseudo = ?';
+        $this->createQuery($sql, [password_hash($post->get('newPassword'), PASSWORD_BCRYPT), $pseudo]);
+    }
 }

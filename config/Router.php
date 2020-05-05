@@ -41,6 +41,9 @@ class Router
                     case 'profile':
                         $this->frontController->profile($this->request->getGet());
                         break;
+                    case 'updatePassword':
+                        $this->frontController->updatePassword($this->request->getPost());
+                        break;
                     case 'logout':
                         $this->frontController->logout();
                         break;

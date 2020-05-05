@@ -12,8 +12,7 @@ class FrontController extends Controller
         if (!$this->session->get('pseudo')) {
             $this->session->set('needLogin', 'Vous devez être connecté pour accéder à cette page');
             header('Location: ../Projet_4/index.php?route=login');
-        }
-        else {
+        } else {
             return true;
         }
     }
@@ -49,17 +48,17 @@ class FrontController extends Controller
     public function login(Parameter $post)
     {
         if ($post->get('submit')) {
+            $passwordValidity = $this->userDAO->isPasswordValid($post, $post, 'password');
             $result = $this->userDAO->login($post);
-            if ($result && $result['isPasswordValid']) {
+            if ($passwordValidity && $result) {
                 $this->session->set('login', 'Content de vous revoir');
-                $this->session->set('id', $result['result']['id']);
+                $this->session->set('id', $result['id']);
                 $this->session->set('pseudo', $post->get('pseudo'));
-                $this->session->set('createdAt', $result['result']['createdAt']);
-                $this->session->set('lastConnection', $result['result']['lastConnection']);
+                $this->session->set('createdAt', $result['createdAt']);
+                $this->session->set('lastConnection', $result['lastConnection']);
                 header('Location: ../Projet_4/index.php');
-            }
-            else{
-                $this->session->set('error_login', 'Le pseudo ou le mot de passe sont incorrects');
+            } else {
+                $this->session->set('errorLogin', 'Le pseudo ou le mot de passe sont incorrects');
                 return $this->view->render('frontend/login', [
                     'post' => $post
                 ]);
@@ -73,6 +72,22 @@ class FrontController extends Controller
         return $this->view->render('frontend/profile');
     }
 
+    public function updatePassword(Parameter $post)
+    {
+        if ($post->get('submit')) {
+            $passwordValidity = $this->userDAO->isPasswordValid($post, $this->session, 'oldPassword');
+            if ($passwordValidity === true) {
+                $this->userDAO->updatePassword($post, $this->session->get('pseudo'));
+                $this->session->set('updatePassword', 'Votre mot de passe a bien été mis à jour <br>');
+                header('Location: ../Projet_4/index.php?route=profile');
+            } else {
+                $this->session->set('wrongPassword', 'Le mot de passe renseigné ne correspond pas <br>');
+                return $this->view->render('frontend/updatePassword');
+            }
+        }
+        return $this->view->render('frontend/updatePassword');
+    }
+
     public function logout()
     {
         if ($this->checkedLogin()) {
@@ -82,5 +97,4 @@ class FrontController extends Controller
             header('Location: ../Projet_4/index.php');
         }
     }
-
 }

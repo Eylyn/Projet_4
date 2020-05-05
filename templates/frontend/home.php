@@ -5,6 +5,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 
 <?= $this->session->show('register'); ?>
 <?= $this->session->show('login'); ?>
+<?= $this->session->show('logout'); ?>
 
 
 

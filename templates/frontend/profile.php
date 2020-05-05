@@ -3,10 +3,12 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 
 <h1>Mon Profil</h1>
 
+<?= $this->session->show('updatePassword'); ?><br>
 <h2>Pseudo : <?= $this->session->get('pseudo'); ?></h2>
 <p>Inscrit le : <?= $this->session->get('createdAt'); ?></p>
 <p>Dernière connexion le : <?= $this->session->get('lastConnection'); ?></p>
 
+<a href="../Projet_4/index.php?route=updatePassword">Modifier mon mot de passe</a>
 <h3>Comentaires postés</h3>
 <table>
     <tr>

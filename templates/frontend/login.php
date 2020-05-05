@@ -3,7 +3,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 
 <h1>Connection</h1>
 
-<?= $this->session->show('error_login');?>
+<?= $this->session->show('errorLogin');?>
 <div>
     <form method="post" action="../Projet_4/index.php?route=login">
         <label for="pseudo">Pseudo</label>
