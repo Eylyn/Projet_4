@@ -47,6 +47,12 @@ class Router
                     case 'logout':
                         $this->frontController->logout();
                         break;
+                    case 'addComment':
+                        $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('episodeId'));
+                        break;
+                    case 'editComment':
+                        $this->frontController->editComment($this->request->getPost(), $this->request->getGet()->get('commentId'), $this->request->getGet()->get('episodeId'));
+                        break;
                     case 'administration':
                         $this->backController->administration();
                         break;

@@ -97,4 +97,48 @@ class FrontController extends Controller
             header('Location: ../Projet_4/index.php');
         }
     }
+    public function addComment(Parameter $post, $episodeId)
+    {
+        if ($post->get('submit')) {
+            $this->commentDAO->addComment($post, $episodeId);
+            $this->session->set('addComment', 'Le commentaire a bien été ajouté');
+            header('Location: ../Projet_4/index.php?route=episode&episodeId=' . $episodeId);
+
+            $episode = $this->episodeDAO->getEpisode($episodeId);
+            $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
+            return $this->view->render('frontend/episode', [
+                'episode' => $episode,
+                'comments' => $comments,
+                'post' => $post
+            ]);
+        }
+    }
+
+    public function editComment(Parameter $post, $commentId, $episodeId)
+    {
+        $comment = $this->commentDAO->getComment($commentId);
+        if ($post->get('submit')) {
+            $this->commentDAO->editComment($post, $commentId);
+            $this->session->set('editComment', 'Votre commentaire a bien été modifié');
+            header('Location: ../Porjet_4/index.php?route=episode&episodeId=' . $episodeId);
+
+            $episode = $this->episodeDAO->getEpisode($episodeId);
+            $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
+            return $this->view->render('frontend/episode', [
+                'episode' => $episode,
+                'comments' => $comments,
+                'post' => $post
+            ]);
+        }
+        $post->set('idComment', $comment->getId());
+        $post->set('pseudo', $comment->getPseudo());
+        $post->set('contentComment', $comment->getContent());
+        
+        $episode = $this->episodeDAO->getEpisode($episodeId);
+        $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
+        return $this->view->render('frontend/episode', [
+            'episode' => $episode,
+            'comments' => $comments
+        ]);
+    }
 }

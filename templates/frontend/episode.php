@@ -5,13 +5,15 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
 
 
     <div>
-        <?= $episode->getTitle(); ?>
-        <?= $episode->getContent(); ?>
+        <?= htmlspecialchars_decode($episode->getTitle()); ?>
+        <?= htmlspecialchars_decode($episode->getContent()); ?>
         <p><?= htmlspecialchars($episode->getCreatedAt()); ?></p>
         <p><?= htmlspecialchars($episode->getLikes()); ?></p>
     </div>
     <a href="../Projet_4/index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
     <div>
+        <h3>Ajouter un commentaire</h3>
+        <?php include('formComment.php'); ?>
         <h3>Commentaires</h3>
         <?php
         foreach ($comments as $comment) {
@@ -20,6 +22,7 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
             <p><?= htmlspecialchars($comment->getContent()); ?></p>
             <p>Posté le <?= htmlspecialchars($comment->getCreatedAt()); ?></p>
             <p><?= htmlspecialchars($comment->isFlag()); ?></p>
+            <a href="../Projet_4/index.php?route=editComment&commentId=<?= $comment->getId(); ?>&episodeId=<?= $episode->getId(); ?>">Modifier le commentaire</a>
         <?php
         }
         ?>
