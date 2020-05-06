@@ -2,6 +2,7 @@
 $this->style = '../Projet_4/public/css/style' ; ?>
 <?= $this->session->show('addEpisode'); ?>
 <?= $this->session->show('editEpisode'); ?>
+<?= $this->session->show('deleteEpisode'); ?>
 <?= $this->session->show('unflag'); ?>
 <?= $this->session->show('deleteComment'); ?>
 <?= $this->session->show('deleteUser'); ?>
@@ -34,6 +35,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
         <td></td>
         <td>
             <a href="../Projet_4/index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
+            <a href="../Projet_4/index.php?route=deleteEpisode&episodeId=<?= $episode->getId(); ?>">Supprimer</a>
         </td>
     </tr>
     <?php

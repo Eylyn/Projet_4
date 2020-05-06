@@ -58,6 +58,12 @@ class EpisodeDAO extends DAO
         ]);
     }
 
+    public function deleteEpisode($episodeId)
+    {
+        $sql = 'DELETE FROM episode WHERE id = ?';
+        $this->createQuery($sql, [$episodeId]);
+    }
+
     public function setLikes($episodeId)
     {
         $sql = 'UPDATE episode SET likes = likes+1 WHERE id = ?';

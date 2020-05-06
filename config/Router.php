@@ -65,6 +65,9 @@ class Router
                     case 'editEpisode':
                         $this->backController->editEpisode($this->request->getPost(), $this->request->getGet()->get('episodeId'));
                         break;
+                    case 'deleteEpisode';
+                        $this->backController->deleteEpisode($this->request->getGet()->get('episodeId'));
+                        break;
                     case 'unflag':
                         $this->backController->unflag($this->request->getGet()->get('commentId'));
                         break;

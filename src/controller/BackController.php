@@ -53,10 +53,17 @@ class BackController extends Controller
         ]);
     }
 
+    public function deleteEpisode($episodeId)
+    {
+        $this->episodeDAO->deleteEpisode($episodeId);
+        $this->session->set('deleteEpisode', 'L\'épisode '.$episodeId. ' a bien été supprimé');
+        header('Location: ../Projet_4/index.php?route=administration');
+    }
+
     public function unflag($commentId)
     {
         $this->commentDAO->unflag($commentId);
-        $this->session->set('unflag', 'Le commentaire n° '.$commentId. 'a bien été désignalé');
+        $this->session->set('unflag', 'Le commentaire n° '.$commentId. ' a bien été désignalé');
         header('Location: ../Projet_4/index.php?route=administration');
     }
 
