@@ -60,6 +60,13 @@ class BackController extends Controller
         header('Location: ../Projet_4/index.php?route=administration');
     }
 
+    public function deleteComment($commentId)
+    {
+        $this->commentDAO->deleteComment($commentId);
+        $this->session->set('deleteComment', 'Le commentaire '.$commentId. ' a été supprimé');
+        header('Location: ../Projet_4/index.php?route=administration');
+    }
+
     public function deleteUser($userId)
     {
         $this->userDAO->deleteUser($userId);

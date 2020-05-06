@@ -2,6 +2,9 @@
 $this->style = '../Projet_4/public/css/style' ; ?>
 <?= $this->session->show('addEpisode'); ?>
 <?= $this->session->show('editEpisode'); ?>
+<?= $this->session->show('unflag'); ?>
+<?= $this->session->show('deleteComment'); ?>
+<?= $this->session->show('deleteUser'); ?>
 
 <h1>Administration</h1>
 
@@ -56,7 +59,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
         <td><?= substr(htmlspecialchars($comment->getContent()), 0, 150); ?></td>
         <td>
             <a href="../Projet_4/index.php?route=unflag&commentId=<?= $comment->getId(); ?>">Désignaler</a>  <br>
-            Supprimer le commentaire
+            <a href="../Projet_4/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a> 
         </td>
     </tr>
     <?php
