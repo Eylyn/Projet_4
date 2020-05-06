@@ -91,10 +91,7 @@ class FrontController extends Controller
     public function logout()
     {
         if ($this->checkedLogin()) {
-            $this->session->stop();
-            $this->session->start();
-            $this->session->set('logout', 'A bientôt');
-            header('Location: ../Projet_4/index.php');
+            $this->endSession('logout');
         }
     }
 
@@ -139,5 +136,25 @@ class FrontController extends Controller
             'episode' => $episode,
             'comments' => $comments
         ]);
+    }
+
+    public function deleteAccount()
+    {
+        $this->userDAO->deleteAccount($this->session->get('pseudo'));
+        $this->endSession('deleteAccount');
+        
+    }
+
+    private function endSession($case)  
+    {
+        $this->session->stop();
+        $this->session->start();
+        if ($case === 'logout') {
+            $this->session->set($case, 'A bientôt');
+        }
+        else {
+            $this->session->set($case, 'Votre compte a bien été supprimé');
+        }
+        header('Location: ../Projet_4/index.php');
     }
 }

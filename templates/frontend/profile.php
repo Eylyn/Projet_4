@@ -9,6 +9,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 <p>Dernière connexion le : <?= $this->session->get('lastConnection'); ?></p>
 
 <a href="../Projet_4/index.php?route=updatePassword">Modifier mon mot de passe</a>
+<a href="../Projet_4/index.php?route=deleteAccount">Supprimer mon compte</a>
 <h3>Comentaires postés</h3>
 <table>
     <tr>

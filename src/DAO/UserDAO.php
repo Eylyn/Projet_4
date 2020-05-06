@@ -80,4 +80,10 @@ class UserDAO extends DAO
         $sql = 'DELETE FROM users WHERE id = ?';
         $this->createQuery($sql, [$userId]);
     }
+
+    public function deleteAccount($pseudo)
+    {
+        $sql = 'DELETE FROM users WHERE id = ?';
+        $this->createQuery($sql, [$pseudo]);
+    }
 }
