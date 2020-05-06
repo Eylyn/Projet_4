@@ -68,6 +68,9 @@ class Router
                     case 'unflag':
                         $this->backController->unflag($this->request->getGet()->get('commentId'));
                         break;
+                    case 'deleteUser':
+                        $this->backController->deleteUser($this->request->getGet()->get('userId'));
+                        break;
                     default:
                         $this->errorController->errorNotFound();
                 }

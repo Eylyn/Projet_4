@@ -73,5 +73,19 @@ $this->style = '../Projet_4/public/css/style' ; ?>
         <td>Rôles</td>
         <td>Actions</td>
     </tr>
+    <?php
+    foreach ($users as $user) {
+    ?>
+    <tr>
+        <td><?= htmlspecialchars($user->getPseudo()); ?></td>
+        <td><?= htmlspecialchars($user->getCreatedAt()); ?></td>
+        <td><?= htmlspecialchars($user->getLastConnection()); ?></td>
+        <td></td>
+        <td><?= htmlspecialchars($user->getRole()); ?></td>
+        <td><a href="../Projet_4/index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer</a></td>
+    </tr>
+    <?php
+    }
+    ?>
 </table>
 <a href="../Projet_4/index.php">Retour à l'accueil</a>

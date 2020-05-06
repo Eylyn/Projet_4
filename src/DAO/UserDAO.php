@@ -74,4 +74,10 @@ class UserDAO extends DAO
         $sql = 'UPDATE users SET password = ? WHERE pseudo = ?';
         $this->createQuery($sql, [password_hash($post->get('newPassword'), PASSWORD_BCRYPT), $pseudo]);
     }
+
+    public function deleteUser($userId)
+    {
+        $sql = 'DELETE FROM users WHERE id = ?';
+        $this->createQuery($sql, [$userId]);
+    }
 }

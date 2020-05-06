@@ -56,7 +56,14 @@ class BackController extends Controller
     public function unflag($commentId)
     {
         $this->commentDAO->unflag($commentId);
-        $this->session->set('unflag', 'Le commentaire n°'.$commentId. 'a bien été désignalé');
+        $this->session->set('unflag', 'Le commentaire n° '.$commentId. 'a bien été désignalé');
+        header('Location: ../Projet_4/index.php?route=administration');
+    }
+
+    public function deleteUser($userId)
+    {
+        $this->userDAO->deleteUser($userId);
+        $this->session->set('deleteUser', 'L\'utilisateur '.$userId.' a été supprimé');
         header('Location: ../Projet_4/index.php?route=administration');
     }
 }
