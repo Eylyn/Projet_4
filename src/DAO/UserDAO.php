@@ -15,14 +15,14 @@ class UserDAO extends DAO
         $user->setCreatedAt($row['createdAt']);
         $user->setLastConnection($row['lastConnection']);
         $user->setEmail($row['email']);
-        $user->setRole($row['role_id']);
+        $user->setRole($row['name']);
 
         return $user;
     }
 
     public function getUsers()
     {
-        $sql = 'SELECT id, pseudo, createdAt, email, role_id, lastConnection FROM users ORDER BY id DESC';
+        $sql = 'SELECT users.id, users.pseudo, users.email, DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, DATE_FORMAT(lastConnection, \'%d/%m/%Y à %Hh%imin\') as lastConnection, role.name FROM users INNER JOIN role ON users.role_id = role.id ORDER BY users.id DESC';
         $result = $this->createQuery($sql);
         $users = [];
         foreach ($result as $row) {
@@ -63,7 +63,7 @@ class UserDAO extends DAO
 
     public function login(Parameter $post)
     {
-        $sql = 'SELECT id, role_id, DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, DATE_FORMAT(lastConnection, \'%d/%m/%Y à %Hh%imin\') as lastConnection FROM users WHERE pseudo = ?';
+        $sql = 'SELECT users.id, users.role_id, DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, DATE_FORMAT(lastConnection, \'%d/%m/%Y à %Hh%imin\') as lastConnection, role.name FROM users INNER JOIN role ON role.id = users.role_id WHERE pseudo = ?';
         $data = $this->createQuery($sql, [$post->get('pseudo')]);
         $result = $data->fetch();
         return $result;

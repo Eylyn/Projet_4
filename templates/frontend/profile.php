@@ -7,6 +7,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 <h2>Pseudo : <?= $this->session->get('pseudo'); ?></h2>
 <p>Inscrit le : <?= $this->session->get('createdAt'); ?></p>
 <p>Dernière connexion le : <?= $this->session->get('lastConnection'); ?></p>
+<p>Role : <?= $this->session->get('role'); ?></p>
 
 <a href="../Projet_4/index.php?route=updatePassword">Modifier mon mot de passe</a>
 <a href="../Projet_4/index.php?route=deleteAccount">Supprimer mon compte</a>

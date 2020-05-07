@@ -73,9 +73,10 @@ $this->style = '../Projet_4/public/css/style' ; ?>
     <tr>
         <td>Pseudo</td>
         <td>Inscription</td>
-        <td>Derbière connexion</td>
+        <td>Dernière connexion</td>
         <td>Commentaires</td>
         <td>Rôles</td>
+        <td>Email</td>
         <td>Actions</td>
     </tr>
     <?php
@@ -87,7 +88,20 @@ $this->style = '../Projet_4/public/css/style' ; ?>
         <td><?= htmlspecialchars($user->getLastConnection()); ?></td>
         <td></td>
         <td><?= htmlspecialchars($user->getRole()); ?></td>
-        <td><a href="../Projet_4/index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer</a></td>
+        <td><a href="mailto:<?= htmlspecialchars($user->getEmail()); ?>"><?= htmlspecialchars($user->getEmail()); ?></a></td>
+        <td>
+            <?php
+            if ($user->getRole() != 'Administrateur') {
+            ?>
+            <a href="../Projet_4/index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer</a>
+            <?php }
+            else {
+                ?>
+                Suppression impossible
+            <?php
+            }
+            ?>
+            </td>
     </tr>
     <?php
     }
