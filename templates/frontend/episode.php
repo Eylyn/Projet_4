@@ -15,7 +15,18 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
     <a href="../Projet_4/index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
     <div>
         <h3>Ajouter un commentaire</h3>
-        <?php include('formComment.php'); ?>
+        <?php 
+        if ($this->session->get('pseudo')) {
+            include('formComment.php');
+        }
+        else {
+            ?>
+            Vous devez être connecté pour commenter
+            <a href="../Projet_4/index.php?route=login">Se connecter</a>
+            <a href="../Projer_4/index.php?route=register">S'inscrire</a>
+            <?php
+        }
+        ?>
         <h3>Commentaires</h3>
         <?php
         foreach ($comments as $comment) {

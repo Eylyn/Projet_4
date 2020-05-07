@@ -80,7 +80,12 @@ class FrontController extends Controller
 
     public function profile()
     {
-        return $this->view->render('frontend/profile');
+        if ($this->checkedLogin()) {
+            $comments = $this->commentDAO->getComments($this->session->get('pseudo'));
+            return $this->view->render('frontend/profile', [
+                'comments' => $comments
+            ]);
+        }
     }
 
     public function updatePassword(Parameter $post)
@@ -128,7 +133,7 @@ class FrontController extends Controller
         if ($post->get('submit')) {
             $errors = $this->validation->validate($post, 'Comment');
             if (!$errors) {
-                $this->commentDAO->addComment($post, $episodeId);
+                $this->commentDAO->addComment($post, $episodeId, $this->session->get('pseudo'));
                 $this->session->set('addComment', 'Le commentaire a bien été ajouté');
                 header('Location: ../Projet_4/index.php?route=episode&episodeId=' . $episodeId);
             }
