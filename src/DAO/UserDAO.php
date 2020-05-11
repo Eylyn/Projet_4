@@ -66,6 +66,8 @@ class UserDAO extends DAO
         $sql1 = 'SELECT users.id, users.role_id, DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, DATE_FORMAT(lastConnection, \'%d/%m/%Y à %Hh%imin\') as lastConnection, role.name FROM users INNER JOIN role ON role.id = users.role_id WHERE pseudo = ?';
         $data = $this->createQuery($sql1, [$post->get('pseudo')]);
         $result = $data->fetch();
+        $sql2 = 'UPDATE users SET lastConnection = NOW() WHERE pseudo = ?';
+        $this->createQuery($sql2, [$post->get('pseudo')]);
         return $result;
     }
 
