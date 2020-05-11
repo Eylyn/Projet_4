@@ -56,8 +56,9 @@ class Router
                     case 'setFlag':
                         $this->frontController->setFlag($this->request->getGet()->get('commentId'), $this->request->getGet()->get('episodeId'));
                         break;
-                        case 'deleteAccount':
-                            $this->frontController->deleteAccount();
+                    case 'deleteAccount':
+                        $this->frontController->deleteAccount();
+                        break;
                     case 'administration':
                         $this->backController->administration();
                         break;

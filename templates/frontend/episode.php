@@ -32,7 +32,7 @@ $this->style = '../Projet_4/public/css/episode' ; ?>
         foreach ($comments as $comment) {
             ?>
             <h4><?= htmlspecialchars($comment->getPseudo()); ?></h4>
-            <p><?= htmlspecialchars($comment->getContent()); ?></p>
+            <p><?= htmlspecialchars(html_entity_decode($comment->getContent())); ?></p>
             <p>Posté le <?= htmlspecialchars($comment->getCreatedAt()); ?></p>
             <p><?= htmlspecialchars($comment->isFlag()); ?></p>
             <a href="../Projet_4/index.php?route=setFlag&commentId=<?= $comment->getId(); ?>&episodeId=<?= $episode->getId(); ?>">Signaler</a>

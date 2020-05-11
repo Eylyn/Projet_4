@@ -33,7 +33,7 @@ else { ?>
     ?>
         <tr>
             <td></td>
-            <td><?= htmlspecialchars($comment->getContent()); ?></td>
+            <td><?= htmlspecialchars(html_entity_decode($comment->getContent())); ?></td>
             <td><?= htmlspecialchars($comment->getCreatedAt()); ?></td>
             <td><a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars($comment->getEpisodeId()); ?>"> Article n° <?= htmlspecialchars($comment->getEpisodeId()); ?></a></td>
         </tr>
