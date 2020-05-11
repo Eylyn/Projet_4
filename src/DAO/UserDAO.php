@@ -63,8 +63,8 @@ class UserDAO extends DAO
 
     public function login(Parameter $post)
     {
-        $sql = 'SELECT users.id, users.role_id, DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, DATE_FORMAT(lastConnection, \'%d/%m/%Y à %Hh%imin\') as lastConnection, role.name FROM users INNER JOIN role ON role.id = users.role_id WHERE pseudo = ?';
-        $data = $this->createQuery($sql, [$post->get('pseudo')]);
+        $sql1 = 'SELECT users.id, users.role_id, DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, DATE_FORMAT(lastConnection, \'%d/%m/%Y à %Hh%imin\') as lastConnection, role.name FROM users INNER JOIN role ON role.id = users.role_id WHERE pseudo = ?';
+        $data = $this->createQuery($sql1, [$post->get('pseudo')]);
         $result = $data->fetch();
         return $result;
     }
@@ -77,8 +77,10 @@ class UserDAO extends DAO
 
     public function deleteUser($userId)
     {
-        $sql = 'DELETE FROM users WHERE id = ?';
-        $this->createQuery($sql, [$userId]);
+        $sql1  = 'INSERT INTO deletUsers(pseudo, email, role_id, createdAt, lastConnection) SELECT pseudo, email, role_id, createdAt, lastConnection FROM users WHERE id = ?';
+        $this->createQuery($sql1, [$userId]);
+        $sql2 = 'DELETE FROM users WHERE id = ?';
+        $this->createQuery($sql2, [$userId]);
     }
 
     public function deleteAccount($pseudo)
