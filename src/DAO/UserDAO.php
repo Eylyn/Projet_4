@@ -87,7 +87,9 @@ class UserDAO extends DAO
 
     public function deleteAccount($pseudo)
     {
-        $sql = 'DELETE FROM users WHERE id = ?';
-        $this->createQuery($sql, [$pseudo]);
+        $sql1  = 'INSERT INTO deletUsers(pseudo, email, role_id, createdAt, lastConnection) SELECT pseudo, email, role_id, createdAt, lastConnection FROM users WHERE pseudo = ?';
+        $this->createQuery($sql1, [$pseudo]);
+        $sql2 = 'DELETE FROM users WHERE id = ?';
+        $this->createQuery($sql2, [$pseudo]);
     }
 }
