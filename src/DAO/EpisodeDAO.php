@@ -60,8 +60,10 @@ class EpisodeDAO extends DAO
 
     public function deleteEpisode($episodeId)
     {
-        $sql = 'DELETE FROM episode WHERE id = ?';
-        $this->createQuery($sql, [$episodeId]);
+        $sql1  = 'INSERT INTO deletedEpisode(oldId, title, content, createdAt, comments) SELECT id, title, content, createdAt, comments FROM episode WHERE id = ?';
+        $this->createQuery($sql1, [$episodeId]);
+        $sql2 = 'DELETE FROM episode WHERE id = ?';
+        $this->createQuery($sql2, [$episodeId]);
     }
 
     public function setLikes($episodeId)

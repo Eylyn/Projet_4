@@ -80,7 +80,8 @@ class BackController extends Controller
     {
         if ($this->checkAdmin()) {
             $this->episodeDAO->deleteEpisode($episodeId);
-            $this->session->set('deleteEpisode', 'L\'épisode ' . $episodeId . ' a bien été supprimé');
+            $this->commentDAO->deleteComments($episodeId);
+            $this->session->set('deleteEpisode', 'L\'épisode ' . $episodeId . ' et ses commentaires ont bien été supprimés');
             header('Location: ../Projet_4/index.php?route=administration');
         }
     }

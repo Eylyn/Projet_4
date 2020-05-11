@@ -82,7 +82,15 @@ class CommentDAO extends DAO
     {
         $sql1  = 'INSERT INTO deletComment(pseudo, content, createdAt, episode_id) SELECT pseudo, content, createdAt, episode_id FROM comment WHERE id = ?';
         $this->createQuery($sql1, [$commentId]);
-        $sql3 = 'DELETE FROM comment WHERE id = ?';
-        $this->createQuery($sql3, [$commentId]);
+        $sql2 = 'DELETE FROM comment WHERE id = ?';
+        $this->createQuery($sql2, [$commentId]);
+    }
+
+    public function deleteComments($episodeId)
+    {
+        $sql1  = 'INSERT INTO deletComment(pseudo, content, createdAt, episode_id) SELECT pseudo, content, createdAt, episode_id FROM comment WHERE episode_id = ?';
+        $this->createQuery($sql1, [$episodeId]);
+        $sql2 = 'DELETE FROM comment WHERE episode_id = ?';
+        $this->createQuery($sql2, [$episodeId]);
     }
 }
