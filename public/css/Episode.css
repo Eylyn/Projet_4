@@ -10,7 +10,6 @@
     --titles : 'Cabin Sketch', sans-serif;
     --bodyFont : 'Lato', sans-serif;
 }
-
 h1
 {
     font-family: var(--titles);

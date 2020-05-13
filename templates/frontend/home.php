@@ -9,36 +9,14 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 <?= $this->session->show('deleteAccount'); ?>
 
 
-
-
-<?php
-if ($this->session->get('pseudo')) {
-?>
-    <a href="../Projet_4/index.php?route=profile">Mon profil</a>
-    <a href="../Projet_4/index.php?route=logout">Déconnexion</a>
-    <?php if ($this->session->get('role') === 'Administrateur') {?>
-        <a href="../Projet_4/index.php?route=administration">Administration</a>
-    <?php
-    }
-    ?>
-
-<?php
-}
-else {?>
-    <a href="../Projet_4/index.php?route=register">Inscription</a>
-<a href="../Projet_4/index.php?route=login">Connexion</a>
-<?php
-}
-?>
-
 <?php
 foreach ($episodes as $episode) {
     ?>
-    <div>
+    <div class="episode-container col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId()); ?>"><?= $episode->getTitle(); ?></a>
-        <div><?= $episode->getContent(); ?></div>
-        <p> Sorti le : <?= htmlspecialchars($episode->getCreatedAt()); ?></p>
-        <p>Likes : <?= htmlspecialchars($episode->getLikes()); ?></p>
+        <div><?= substr($episode->getContent(), 0, 300); ?></div>
+        <p> Publié le : <?= htmlspecialchars($episode->getCreatedAt()); ?></p>
+        <p class="likes"><img src="../Projet_4/public/icones/likeFull.svg" alt="likes" class="icone"> <?= htmlspecialchars($episode->getLikes()); ?></p>
     </div>
     <?php
 }

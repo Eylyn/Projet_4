@@ -11,69 +11,11 @@
     --bodyFont : 'Lato', sans-serif;
 }
 
-h1
-{
-    font-family: var(--titles);
-    font-weight: 700;
-    font-size: 40px;
-    color: var(--darkbluegreen);
-    text-shadow: var(--brown) 2px 2px 5px;
-}
-h2, h2 a{
-    font-family: var(--titles);
-    font-weight: 400;
-    font-size: 25px;
-    color: var(--blue);
-    text-shadow: var(--rose) 2px 2px 3px;
-    text-decoration: none !important;
-}
-h3 {
-    font-family: var(--titles);
-    font-size: 18px;
-    color: var(--bluegreen);
-}
-h4 {
-    font-family: var(--titles);
-    color: var(--brown);
-    font-size: 15px;
-}
 
-body {
-    background-color: var(--beige);
-    font-family: var(--bodyFont);
-    font-size: 16px;
-    color: var(--darkgreyblue);
-}
-a {
-    color: var(--blue);
-}
-a:visited {
-    color: var(--brown) ;
-    text-shadow: var(--blue) 2px 2px 3px;
-}
-@media (prefers-color-scheme : dark) {
-    h1 {
-        color: var(--beige);
-    }
-    h2, h2 a {
-        color: var(--blue);
-        text-shadow: var(--brown) 2px 2px 3px;
-    }
-    h3 {
-        color: var(--bluegreen);
-    }
-    h4 {
-        color: var(--rose);
-    }
-    body {
-        background-color: var(--darkbluegreen);
-        color: var(--brown);
-    }
-    a {
-        color: var(--darkgreyblue);
-    }
-    a:visited {
-        color: var(--rose) ;
-        text-shadow: var(--blue) 2px 2px 3px;
-    }
+.episode-container {
+    border: solid 1.5px var(--brown);
+    border-radius: 4px;
+    box-shadow: var(--brown) 2px 2px 5px ;
+    margin: 5px;
+    padding: 5px;
 }
