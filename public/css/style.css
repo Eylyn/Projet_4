@@ -1,21 +1,49 @@
 :root
 {
-    --blue : rgb(62, 152, 153);
-    --beige: rgb(205, 198, 192);
-    --rose: rgb(166, 117,147);
+    --light-shades : rgb(90, 173, 183);
+    --light-accent: rgb(186, 227, 227);
+    --main-color: rgb(166, 115,144);
     --brown: rgb(92, 68, 84);
-    --bluegreen: rgb(30, 124, 149);
+    --dark-accent: rgb(40, 121, 171);
     --darkgreyblue: rgb(64, 60, 83);
-    --darkbluegreen: rgb(1, 57, 71);
+    --dark-shades: rgb(25, 40, 78);
     --titles : 'Cabin Sketch', sans-serif;
     --bodyFont : 'Lato', sans-serif;
 }
 
+body {
+    background-image: url(../images/header-image.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 !important;
+}
 
-.episode-container {
-    border: solid 1.5px var(--brown);
+
+#content{
+    padding: 30px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--light-shades);
+    color: var(--light-accent);
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+h2 {
+    background-color: var(--dark-shades);
+    color: var(--main-color) !important;
+    text-shadow: none !important;
     border-radius: 4px;
-    box-shadow: var(--brown) 2px 2px 5px ;
-    margin: 5px;
-    padding: 5px;
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+.infos {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: var(--dark-shades);
+}
+.infos a {
+    text-align: right;
 }

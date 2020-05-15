@@ -54,9 +54,7 @@ class UserDAO extends DAO
     {
         $sql = 'SELECT password FROM users WHERE pseudo = ?';
         $data = $this->createQuery($sql, [$pseudo->get('pseudo')]);
-        
         $result = $data->fetch();
-        var_dump($result);
         $isPasswordValid = password_verify($post->get($name), $result['password']);
         return $isPasswordValid;
     }

@@ -8,7 +8,7 @@
     <link href="<?= $style ?>.css" rel="stylesheet" />
     <link href="../Projet_4/public/css//bootstrap.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Lato&display=swap" rel="stylesheet">
-
+    <link rel="icon" href="../Projet_4/public/images/logo-light.png">
     <script src="../Projet_4/public/js/tinymce/js/tinymce/tinymce.min.js"></script>
     <script>
         tinymce.init({
@@ -65,7 +65,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <img class="navbar-brand" src="../Projet_4/public/images/logo-dark.png" alt="Logo">
             <div class="container-fluid" id="menu-principal">
-                <ul  class="nav">
+                <ul class="nav">
                     <li class="nav-item"><a href="../Projet_4/index.php"><img src="../Projet_4/public/icones/home.svg" alt="accueil" class="icone"> Accueil</a></li>
                     <?php
                     if ($this->session->get('pseudo')) {
@@ -87,19 +87,24 @@
                     ?>
                 </ul>
             </div>
+            <div class="messages">
+                <?= $this->session->show('register'); ?>
+                <?= $this->session->show('login'); ?>
+                <?= $this->session->show('logout'); ?>
+                <?= $this->session->show('deleteAccount'); ?>
+            </div>
         </nav>
     </header>
 
-    <section id="content">
         <?= $content ?>
-    </section>
+  
     <footer class="container col-xs-12">
-        <section class="row">
-            <ul class="col-sm-6">
+        <section class="row container">
+            <ul class="col-sm-offset-1 col-sm-5 col-xs-12">
                 <li><a href="../Projet_4/index.php?route=mentions"> Mentions Légales</a></li>
                 <li><a href="../Projet_4/index.php?route=confidentiality">Politique de confidentialité</a></li>
             </ul>
-            <ul class="col-sm-6">
+            <ul class="col-sm-5 col-xs-12">
                 <li><a href="../Projet_4/index.php">Accueil</a></li>
             </ul>
         </section>

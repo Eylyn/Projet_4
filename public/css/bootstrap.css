@@ -9,6 +9,11 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 :root
 {
+    --light-shades : rgb(90, 173, 183);
+    --light-accent: rgb(186, 227, 227);
+    --main-color: rgb(166, 115,144);
+    --dark-accent: rgb(40, 121, 171);
+    --dark-shades: rgb(32, 48, 92);
     --blue : rgb(62, 152, 153);
     --beige: rgb(205, 198, 192);
     --rose: rgb(166, 117,147);
@@ -20,17 +25,7 @@
     --bodyFont : 'Lato', sans-serif;
 }
 
-html {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-body {
-  background-color: var(--beige) !important;
-  font-family: var(--bodyFont);
-  font-size: 16px;
-  color: var(--darkgreyblue);
-}
+
 article,
 aside,
 details,
@@ -216,15 +211,14 @@ th {
   box-sizing: border-box;
 }
 html {
-  font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333333;
-  background-color: #ffffff;
+  font-family: var(--bodyFont);
+  font-size: 16px;
+  color: var(--dark-shades);
 }
 input,
 button,
@@ -2183,6 +2177,8 @@ input[type="button"].btn-block {
   position: relative;
   display: block;
   padding: 10px 15px;
+  font-size: 18px;
+  line-height: 18px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -3585,19 +3581,22 @@ button.close {
     display: none !important;
   }
 }
+
+/* CSS Personnalisé */
 h1, h2, h3 {
   font-family: var(--titles);
 }
 h1 {
   font-weight: 700;
-  font-size: 40px;
-  color: var(--darkbluegreen);
-  text-shadow: var(--brown) 2px 2px 5px;
+  font-size: 60px;
+  color: var(--dark-shades);
+  text-shadow: #f8f8f8 2px 2px 5px;
+  text-align: center;
 }
 h2, h2 a{
   font-weight: 400;
   font-size: 25px;
-  color: var(--blue);
+  color: var(--light-shades);
   text-shadow: var(--rose) 2px 2px 3px;
   text-decoration: none !important;
 }
@@ -3614,6 +3613,19 @@ nav{
   box-shadow: var(--brown) 2px 2px 5px ;
   display: flex;
 }
+#enTete {
+  padding-top: 100px;
+  text-align: center;
+
+}
+#content {
+  padding: 30px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--light-shades);
+  color: var(--light-accent);
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
 
 #menu-principal {
   margin: auto 0;
@@ -3621,12 +3633,12 @@ nav{
 .icone {
   height: 20px;
 }
-section {
-
-  padding-top: 100px;
-}
 .likes {
   line-height: 20px;
+}
+footer{
+  background-color: var(--dark-shades);
+  list-style: none;
 }
 /*@media (prefers-color-scheme : dark) {
     h1 {
