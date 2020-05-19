@@ -20,9 +20,9 @@ class View
 
     public function render($template, $data = [])
     {
-        $this->file = '../Projet_4/templates/' .$template. '.php';
+        $this->file = 'templates/' .$template. '.php';
         $content = $this->renderFile($this->file, $data);
-        $view = $this->renderFile('../Projet_4/templates/base.php', [
+        $view = $this->renderFile('templates/base.php', [
             'title' => $this->title,
             'style' => $this->style,
             'content' => $content,
@@ -39,6 +39,6 @@ class View
             require $file;
             return ob_get_clean();
         }
-        header('Location: ../Projet_4/index.php?route=notFound');
+        header('Location: index.php?route=notFound');
     }
 }

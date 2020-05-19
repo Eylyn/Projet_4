@@ -1,5 +1,5 @@
 <?php $this->title = 'Episode';
-$this->style = '../Projet_4/public/css/episode'; ?>
+$this->style = 'public/css/episode'; ?>
 
 <?= $this->session->show('setFlag'); ?><br>
 
@@ -15,10 +15,10 @@ $this->style = '../Projet_4/public/css/episode'; ?>
             <?= htmlspecialchars_decode($episode->getContent()); ?>
             <p><?= htmlspecialchars($episode->getCreatedAt()); ?></p>
             <p><?= htmlspecialchars($episode->getLikes()); ?></p>
-            <a href="../Projet_4/index.php?route=setLikes&episodeId=<?= $episode->getId(); ?>"><img src="../Projet_4/public/icones/likeEmpty.svg" class="icone"></a>
+            <a href="index.php?route=setLikes&episodeId=<?= $episode->getId(); ?>"><img src="public/icones/likeEmpty.svg" class="icone"></a>
         </div>
         <?php if ($this->session->get('role') === 'Administrateur') { ?>
-            <a href="../Projet_4/index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
+            <a href="index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
         <?php
         }
         ?>
@@ -27,13 +27,13 @@ $this->style = '../Projet_4/public/css/episode'; ?>
                 <?php
                 if (htmlspecialchars($episode->getId() - 1) != 0) {
                 ?>
-                    <a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId() - 1); ?>"><img src="../Projet_4/public/icones/previous.svg" alt="icone-precedent" class="icone"> Episode Précédent</a>
+                    <a href="index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId() - 1); ?>"><img src="public/icones/previous.svg" alt="icone-precedent" class="icone"> Episode Précédent</a>
                 <?php
                 }
                 ?>
             </span>
             <span class="next col-xs-6">
-                <a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId() + 1); ?>">Episode Suivant <img src="../Projet_4/public/icones/next.svg" alt="icone-suivant" class="icone"> </a>
+                <a href="index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId() + 1); ?>">Episode Suivant <img src="public/icones/next.svg" alt="icone-suivant" class="icone"> </a>
             </span>
         </div>
         <div class="comment-section">
@@ -44,8 +44,8 @@ $this->style = '../Projet_4/public/css/episode'; ?>
             } else {
             ?>
                 Vous devez être connecté pour commenter <br>
-                <a href="../Projet_4/index.php?route=login">Se connecter</a>
-                <a href="../Projet_4/index.php?route=register">S'inscrire</a>
+                <a href="index.php?route=login">Se connecter</a>
+                <a href="index.php?route=register">S'inscrire</a>
             <?php
             }
             ?>
@@ -58,7 +58,7 @@ $this->style = '../Projet_4/public/css/episode'; ?>
                     <p><?= htmlspecialchars(html_entity_decode($comment->getContent())); ?></p>
                     <p>Posté le <?= $comment->getCreatedAt(); ?></p>
                     <p><?= htmlspecialchars($comment->isFlag()); ?></p>
-                    <a href="../Projet_4/index.php?route=setFlag&commentId=<?= $comment->getId(); ?>&episodeId=<?= $episode->getId(); ?>">Signaler</a>
+                    <a href="index.php?route=setFlag&commentId=<?= $comment->getId(); ?>&episodeId=<?= $episode->getId(); ?>">Signaler</a>
                 </div>
 
             <?php
@@ -77,7 +77,7 @@ $this->style = '../Projet_4/public/css/episode'; ?>
                         <h5><?= $lastComment->getCreatedAt(); ?></h5>
                         <p><?= htmlspecialchars($lastComment->getContent()); ?></p>
                         <p><?= htmlspecialchars($lastComment->getPseudo()); ?></p>
-                        <a href="../Projet_4/index.php?route=episode&episodeId=<?= $lastComment->getEpisodeId(); ?>#<?= $lastComment->getId(); ?>">Lire le commentaire</a>
+                        <a href="index.php?route=episode&episodeId=<?= $lastComment->getEpisodeId(); ?>#<?= $lastComment->getId(); ?>">Lire le commentaire</a>
                     </div>
                 <?php
                 }

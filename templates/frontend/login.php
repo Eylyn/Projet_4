@@ -1,5 +1,5 @@
 <?php $this->title = " Connexion";
-$this->style = '../Projet_4/public/css/style'; ?>
+$this->style = 'public/css/style'; ?>
 
 
 <section class="enTete">
@@ -10,7 +10,7 @@ $this->style = '../Projet_4/public/css/style'; ?>
 
 <section id="content" class="container-fluid">
     <div class="form-connection">
-        <form method="post" action="../Projet_4/index.php?route=login">
+        <form method="post" action="index.php?route=login">
             <label for="pseudo">Pseudo</label>
             <input type="text" id="pseudo" name="pseudo" value="<?= isset($post) ? htmlspecialchars($post->get('pseudo')) : ''; ?>"><br>
             <label for="password">Mot de passe</label>

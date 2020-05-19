@@ -3,7 +3,7 @@ $route = isset($post) && $post->get('id') ? 'editEpisode&episodeId='.$post->get(
 $submit = $route === 'addEpisode' ? 'Publier' : 'Mettre à jour';
 ?>
 
-<form method="post" action="../Projet_4/index.php?route=<?= $route; ?>">
+<form method="post" action="index.php?route=<?= $route; ?>">
     <label for="title">Titre</label>
     <input type="text" id="title" name="title" class="wysiwygTitle" value="<?= isset($post) ? htmlspecialchars($post->get('title')): ''; ?>">
     <label for="content">Contenu</label>

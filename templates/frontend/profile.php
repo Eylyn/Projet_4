@@ -1,5 +1,5 @@
 <?php $this->title =  "Votre Profil";
-$this->style = '../Projet_4/public/css/style'; ?>
+$this->style = 'public/css/style'; ?>
 
 
 <section class="enTete">
@@ -16,11 +16,11 @@ $this->style = '../Projet_4/public/css/style'; ?>
         <p>Dernière connexion le : <?= $this->session->get('lastConnection'); ?></p>
         <p>Role : <?= $this->session->get('role'); ?></p>
 
-        <a href="../Projet_4/index.php?route=updatePassword">Modifier mon mot de passe</a>
+        <a href="index.php?route=updatePassword">Modifier mon mot de passe</a>
         <?php
         if ($this->session->get('role') != 'Administrateur') {
         ?>
-            <a href="../Projet_4/index.php?route=deleteAccount">Supprimer mon compte</a>
+            <a href="index.php?route=deleteAccount">Supprimer mon compte</a>
         <?php } ?>
     </div>
     <div class="posted-comments">
@@ -43,7 +43,7 @@ $this->style = '../Projet_4/public/css/style'; ?>
                         <td></td>
                         <td><?= htmlspecialchars(html_entity_decode($comment->getContent())); ?> </td>
                         <td><?= htmlspecialchars($comment->getCreatedAt()); ?> </td>
-                        <td><a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars($comment->getEpisodeId()); ?>"> Article n° <?= htmlspecialchars($comment->getEpisodeId()); ?></a></td>
+                        <td><a href="index.php?route=episode&episodeId=<?= htmlspecialchars($comment->getEpisodeId()); ?>"> Article n° <?= htmlspecialchars($comment->getEpisodeId()); ?></a></td>
                     </tr>
 
                 </tbody>

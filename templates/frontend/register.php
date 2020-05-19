@@ -1,5 +1,5 @@
 <?php $this->title = "Inscription";
-$this->style = '../Projet_4/public/css/style'; ?>
+$this->style = 'public/css/style'; ?>
 
 
 
@@ -10,7 +10,7 @@ $this->style = '../Projet_4/public/css/style'; ?>
 </section>
 
 <section id="content" class="container-fluid">
-    <form action="../Projet_4/index.php?route=register" method="post">
+    <form action="index.php?route=register" method="post">
         <label for="pseudo">Votre pseudo</label>
         <input type="text" name="pseudo" id="pseudo"><br>
         <label for="password"> Votre Mot de passe</label>

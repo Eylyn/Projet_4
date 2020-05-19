@@ -1,5 +1,5 @@
 <?php $this->title = "Administration";
-$this->style = '../Projet_4/public/css/style' ; ?>
+$this->style = 'public/css/style' ; ?>
 <?= $this->session->show('addEpisode'); ?>
 <?= $this->session->show('editEpisode'); ?>
 <?= $this->session->show('deleteEpisode'); ?>
@@ -10,7 +10,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
 <h1>Administration</h1>
 
 <h2>Episodes</h2>
-<a href="../Projet_4/index.php?route=addEpisode">Publier un nouvel Episode</a>
+<a href="index.php?route=addEpisode">Publier un nouvel Episode</a>
 <table>
     <tr>
         <td>Titre</td>
@@ -26,7 +26,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
     foreach ($episodes as $episode) {
     ?>
     <tr>
-        <td><a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId()); ?>"><?= htmlspecialchars($episode->getTitle()); ?></a></td>
+        <td><a href="index.php?route=episode&episodeId=<?= htmlspecialchars($episode->getId()); ?>"><?= htmlspecialchars($episode->getTitle()); ?></a></td>
         <td><?= substr(htmlspecialchars($episode->getContent()), 0, 150); ?></td>
         <td><?= htmlspecialchars($episode->getCreatedAt()); ?></td>
         <td><?= htmlspecialchars($episode->getComments()); ?></td>
@@ -34,8 +34,8 @@ $this->style = '../Projet_4/public/css/style' ; ?>
         <td></td>
         <td></td>
         <td>
-            <a href="../Projet_4/index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
-            <a href="../Projet_4/index.php?route=deleteEpisode&episodeId=<?= $episode->getId(); ?>">Supprimer</a>
+            <a href="index.php?route=editEpisode&episodeId=<?= $episode->getId(); ?>">Editer</a>
+            <a href="index.php?route=deleteEpisode&episodeId=<?= $episode->getId(); ?>">Supprimer</a>
         </td>
     </tr>
     <?php
@@ -55,13 +55,13 @@ $this->style = '../Projet_4/public/css/style' ; ?>
     foreach ($comments as $comment) {
     ?>
     <tr>
-        <td><a href="../Projet_4/index.php?route=episode&episodeId=<?= htmlspecialchars( $comment->getEpisodeId()); ?>"></a></td>
+        <td><a href="index.php?route=episode&episodeId=<?= htmlspecialchars( $comment->getEpisodeId()); ?>"></a></td>
         <td><?=htmlspecialchars($comment->getPseudo()); ?></td>
         <td><?= htmlspecialchars($comment->getCreatedAt()); ?></td>
         <td><?= substr(htmlspecialchars($comment->getContent()), 0, 150); ?></td>
         <td>
-            <a href="../Projet_4/index.php?route=unflag&commentId=<?= $comment->getId(); ?>">Désignaler</a>  <br>
-            <a href="../Projet_4/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a> 
+            <a href="index.php?route=unflag&commentId=<?= $comment->getId(); ?>">Désignaler</a>  <br>
+            <a href="index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a> 
         </td>
     </tr>
     <?php
@@ -93,7 +93,7 @@ $this->style = '../Projet_4/public/css/style' ; ?>
             <?php
             if ($user->getRole() != 'Administrateur') {
             ?>
-            <a href="../Projet_4/index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer</a>
+            <a href="index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer</a>
             <?php }
             else {
                 ?>
@@ -107,4 +107,4 @@ $this->style = '../Projet_4/public/css/style' ; ?>
     }
     ?>
 </table>
-<a href="../Projet_4/index.php">Retour à l'accueil</a>
+<a href="index.php">Retour à l'accueil</a>

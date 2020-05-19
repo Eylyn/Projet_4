@@ -11,7 +11,7 @@ class BackController extends Controller
     {
         if (!$this->session->get('pseudo') && !($this->session->get('role') === 'admin')) {
             $this->session->set('loggedAdmin', 'Vous devez être connecté et avoir les droits pour accéder à cette page');
-            header('Location: ../Projet_4/index.php');
+            header('Location: index.php');
         } else {
             return true;
         }
@@ -39,7 +39,7 @@ class BackController extends Controller
                 if (!$errors) {
                     $this->episodeDAO->addEpisode($post);
                     $this->session->set('addEpisode', 'Le nouvel épisode à bien été ajouté');
-                    header('Location: ../Projet_4/index.php?route=administration');
+                    header('Location: index.php?route=administration');
                 }
                 return $this->view->render('backend/addEpisode', [
                     'post' => $post,
@@ -59,7 +59,7 @@ class BackController extends Controller
                 if (!$errors) {
                     $this->episodeDAO->editEpisode($post, $episodeId);
                     $this->session->set('editEpisode', 'L\'article a bien été mis à jour');
-                    header('Location: ../Projet_4/index.php?route=administration');
+                    header('Location: index.php?route=administration');
                 }
                 return $this->view->render('backend/editEpisode', [
                     'post' => $post,
@@ -82,7 +82,7 @@ class BackController extends Controller
             $this->episodeDAO->deleteEpisode($episodeId);
             $this->commentDAO->deleteComments($episodeId);
             $this->session->set('deleteEpisode', 'L\'épisode ' . $episodeId . ' et ses commentaires ont bien été supprimés');
-            header('Location: ../Projet_4/index.php?route=administration');
+            header('Location: index.php?route=administration');
         }
     }
 
@@ -91,7 +91,7 @@ class BackController extends Controller
         if ($this->checkAdmin()) {
             $this->commentDAO->unflag($commentId);
             $this->session->set('unflag', 'Le commentaire n° ' . $commentId . ' a bien été désignalé');
-            header('Location: ../Projet_4/index.php?route=administration');
+            header('Location: index.php?route=administration');
         }
     }
 
@@ -100,7 +100,7 @@ class BackController extends Controller
         if ($this->checkAdmin()) {
             $this->commentDAO->deleteComment($commentId);
             $this->session->set('deleteComment', 'Le commentaire ' . $commentId . ' a été supprimé');
-            header('Location: ../Projet_4/index.php?route=administration');
+            header('Location: index.php?route=administration');
         }
     }
 
@@ -109,7 +109,7 @@ class BackController extends Controller
         if ($this->checkAdmin()) {
             $this->userDAO->deleteUser($userId);
             $this->session->set('deleteUser', 'L\'utilisateur ' . $userId . ' a été supprimé');
-            header('Location: ../Projet_4/index.php?route=administration');
+            header('Location: index.php?route=administration');
         }
     }
 }

@@ -6,10 +6,10 @@
     <title><?= $title ?></title>
 
     <link href="<?= $style ?>.css" rel="stylesheet" />
-    <link href="../Projet_4/public/css//bootstrap.css" rel="stylesheet">
+    <link href="public/css//bootstrap.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Lato&display=swap" rel="stylesheet">
-    <link rel="icon" href="../Projet_4/public/images/logo-light.png">
-    <script src="../Projet_4/public/js/tinymce/js/tinymce/tinymce.min.js"></script>
+    <link rel="icon" href="public/images/logo-light.png">
+    <script src="public/js/tinymce/js/tinymce/tinymce.min.js"></script>
     <script>
         tinymce.init({
             mode: "specific_input",
@@ -63,25 +63,25 @@
 <body>
     <header>
         <nav class="navbar navbar-default navbar-fixed-top">
-            <img class="navbar-brand" src="../Projet_4/public/images/logo-dark.png" alt="Logo">
+            <img class="navbar-brand" src="public/images/logo-dark.png" alt="Logo">
             <div class="container-fluid" id="menu-principal">
                 <ul class="nav">
-                    <li class="nav-item"><a href="../Projet_4/index.php"><img src="../Projet_4/public/icones/home.svg" alt="accueil" class="icone"> Accueil</a></li>
+                    <li class="nav-item"><a href="index.php"><img src="public/icones/home.svg" alt="accueil" class="icone"> Accueil</a></li>
                     <?php
                     if ($this->session->get('pseudo')) {
                     ?>
-                        <li class="nav-item"><a href="../Projet_4/index.php?route=profile"><img src="../Projet_4/public/icones/profile.svg" alt="profil" class="icone"> Mon profil</a></li>
-                        <li class="nav-item"><a href="../Projet_4/index.php?route=logout"><img src="../Projet_4/public/icones/logout.svg" alt="deconnexion" class="icone"> Se deconnecter</a></li>
+                        <li class="nav-item"><a href="index.php?route=profile"><img src="public/icones/profile.svg" alt="profil" class="icone"> Mon profil</a></li>
+                        <li class="nav-item"><a href="index.php?route=logout"><img src="public/icones/logout.svg" alt="deconnexion" class="icone"> Se deconnecter</a></li>
                         <?php if ($this->session->get('role') === 'Administrateur') { ?>
-                            <li class="nav-item"><a href="../Projet_4/index.php?route=administration"><img src="../Projet_4/public/icones/admin.svg" alt="administration" class="icone"> Administration</a></li>
+                            <li class="nav-item"><a href="index.php?route=administration"><img src="public/icones/admin.svg" alt="administration" class="icone"> Administration</a></li>
                         <?php
                         }
                         ?>
                     <?php
                     } else {
                     ?>
-                        <li class="nav-item"><a href="../Projet_4/index.php?route=login"><img src="../Projet_4/public/icones/login.svg" alt="connexion" class="icone"> Se connecter</a></li>
-                        <li class="nav-item"><a href="../Projet_4/index.php?route=register"><img src="../Projet_4/public/icones/register.svg" alt="enregistrement" class="icone"> S'inscrire </a></li>
+                        <li class="nav-item"><a href="index.php?route=login"><img src="public/icones/login.svg" alt="connexion" class="icone"> Se connecter</a></li>
+                        <li class="nav-item"><a href="index.php?route=register"><img src="public/icones/register.svg" alt="enregistrement" class="icone"> S'inscrire </a></li>
                     <?php
                     }
                     ?>
@@ -101,12 +101,12 @@
     <footer class="container-fluid col-xs-12">
         <section class="row container col-xs-12">
             <ul class="col-sm-offset-1 col-sm-5 col-xs-12">
-                <li><a href="../Projet_4/index.php?route=mentions"> Mentions Légales</a></li>
-                <li><a href="../Projet_4/index.php?route=confidentiality">Politique de confidentialité</a></li>
+                <li><a href="index.php?route=mentions"> Mentions Légales</a></li>
+                <li><a href="index.php?route=confidentiality">Politique de confidentialité</a></li>
             </ul>
             <ul class="col-sm-5 col-xs-12">
-                <li><a href="../Projet_4/index.php">Accueil</a></li>
-                <li><a href="../Projet_4/index.php?route=APropos">A propos de l'auteur</a></li>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="index.php?route=APropos">A propos de l'auteur</a></li>
             </ul>
         </section>
         <section id="copyright" class="col-xs-12">

@@ -11,7 +11,7 @@ class FrontController extends Controller
     {
         if (!$this->session->get('pseudo')) {
             $this->session->set('needLogin', 'Vous devez être connecté pour accéder à cette page');
-            header('Location: ../Projet_4/index.php?route=login');
+            header('Location: index.php?route=login');
         } else {
             return true;
         }
@@ -47,7 +47,7 @@ class FrontController extends Controller
             if (!$errors) {
                 $this->userDAO->register($post);
                 $this->session->set('register', 'Votre inscription a bien été effectuée <br>');
-                header('Location: ../Projet_4/index.php');
+                header('Location: index.php');
             }
             return $this->view->render('frontend/register', [
                 'post' => $post,
@@ -69,7 +69,7 @@ class FrontController extends Controller
                 $this->session->set('role', $result['name']);
                 $this->session->set('createdAt', $result['createdAt']);
                 $this->session->set('lastConnection', $result['lastConnection']);
-                header('Location: ../Projet_4/index.php');
+                header('Location: index.php');
             } else {
                 $this->session->set('errorLogin', 'Le pseudo ou le mot de passe sont incorrects');
                 return $this->view->render('frontend/login', [
@@ -99,7 +99,7 @@ class FrontController extends Controller
             if ($passwordValidity === true && !$errors) {
                 $this->userDAO->updatePassword($post, $this->session->get('pseudo'));
                 $this->session->set('updatePassword', 'Votre mot de passe a bien été mis à jour <br>');
-                header('Location: ../Projet_4/index.php?route=profile');
+                header('Location: index.php?route=profile');
             } else {
                 $this->session->set('wrongPassword', 'Le mot de passe renseigné ne correspond pas <br>');
                 return $this->view->render('frontend/updatePassword', [
@@ -137,7 +137,7 @@ class FrontController extends Controller
             if (!$errors) {
                 $this->commentDAO->addComment($post, $episodeId, $this->session->get('pseudo'));
                 $this->session->set('addComment', 'Le commentaire a bien été ajouté');
-                header('Location: ../Projet_4/index.php?route=episode&episodeId=' . $episodeId);
+                header('Location: index.php?route=episode&episodeId=' . $episodeId);
             }
             $episode = $this->episodeDAO->getEpisode($episodeId);
             $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
@@ -154,7 +154,7 @@ class FrontController extends Controller
     {
         $this->commentDAO->setFlag($commentId);
         $this->session->set('setFlag', 'Votre signalement à été pris en compte');
-        header('Location: ../Projet_4/index.php?route=episode&episodeId=' . $episodeId);
+        header('Location: index.php?route=episode&episodeId=' . $episodeId);
 
         $episode = $this->episodeDAO->getEpisode($episodeId);
         $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
@@ -179,6 +179,6 @@ class FrontController extends Controller
         } else {
             $this->session->set($case, 'Votre compte a bien été supprimé');
         }
-        header('Location: ../Projet_4/index.php');
+        header('Location: index.php');
     }
 }
