@@ -96,17 +96,21 @@
         </nav>
     </header>
 
-        <?= $content ?>
-  
-    <footer class="container col-xs-12">
-        <section class="row container">
+    <?= $content ?>
+
+    <footer class="container-fluid col-xs-12">
+        <section class="row container col-xs-12">
             <ul class="col-sm-offset-1 col-sm-5 col-xs-12">
                 <li><a href="../Projet_4/index.php?route=mentions"> Mentions Légales</a></li>
                 <li><a href="../Projet_4/index.php?route=confidentiality">Politique de confidentialité</a></li>
             </ul>
             <ul class="col-sm-5 col-xs-12">
                 <li><a href="../Projet_4/index.php">Accueil</a></li>
+                <li><a href="../Projet_4/index.php?route=APropos">A propos de l'auteur</a></li>
             </ul>
+        </section>
+        <section id="copyright" class="col-xs-12">
+            <p>© 2020 Site par Elodie BASSIBEY - Formation OpenClassrooms <a href="https://openclassrooms.com/fr/paths/48-developpeur-web-junior"> Développeur Web Junior</a></p>
         </section>
 
     </footer>

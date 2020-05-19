@@ -3,7 +3,7 @@ $this->title = 'Accueil';
 $this->style = '../Projet_4/public/css/style';
 $this->enTete = '' ?>
 
-<section id="enTete">
+<section class="enTete home">
     <div class="container">
         <h1>Billet Simple pour l'Alaska</h1>
         <p> par Jean Forteroche</p>

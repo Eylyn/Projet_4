@@ -13,15 +13,12 @@
 body{
     margin: 0 !important;
 }
-
 .singleEpisode {
     border: solid 1.5px var(--brown);
     border-radius: 4px;
     box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-    margin: 5px;
     padding: 5px;
     min-width: 80%;
-    margin: 0 15px ;
 }
 .comment-section {
     width: 90%;
@@ -34,6 +31,29 @@ body{
     font-size: 14px;
 }
 .navigation {
+    margin: 10px 0;
+    min-width: 80%;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.next {
+    text-align: right;
+}
+aside{
+    background-color: var(--light-accent);
+    border-radius: 4px;
+    padding: 1px 10px;
+}
+aside h4 {
+    font-variant-caps: small-caps;
+}
+aside h5 {
+    color: var(--light-shades);
+}
+aside p {
+    color: var(--dark-shades);
+}
+.last-comment{
+    padding-bottom: 5px;
+    border-bottom: solid var(--main-color);
 }

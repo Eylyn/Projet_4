@@ -47,6 +47,19 @@ class CommentDAO extends DAO
         return $comments;
     }
 
+    public function lastcomments()
+    {
+        $sql = 'SELECT id, pseudo, content, episode_id,  DATE_FORMAT(createdAt, \'%d/%m/%Y à %Hh%imin\') as createdAt, moderate, flag FROM comment ORDER BY createdAt DESC LIMIT 0, 5';
+        $result = $this->createQuery($sql);
+        $lastComments = [];
+        foreach ($result as $row) {
+            $commentId = $row['id'];
+            $lastComments[$commentId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $lastComments;
+    }
+
     public function addComment(Parameter $post, $episodeId, $pseudo)
     {
         $sql = 'INSERT INTO comment(pseudo, content, createdAt, episode_id, moderate, flag) VALUES(?, ?, NOW(), ?, ?, ?)';
