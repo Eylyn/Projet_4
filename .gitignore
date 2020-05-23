@@ -2,3 +2,4 @@
 .htaccess
 .htpasswd
 DBID.php
+crypt.php

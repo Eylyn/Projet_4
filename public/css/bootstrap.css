@@ -58,10 +58,10 @@ template {
 }
 a {
   background-color: transparent;
-  color: var(--blue);
+  color: var(--main-color);
 }
 a:visited {
-  color: var(--brown) ;
+  color: var(--main-color) ;
   text-shadow: var(--blue) 2px 2px 3px;
 }
 a:active,
@@ -231,12 +231,16 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  background-color: transparent;
+  color: var(--main-color);
   text-decoration: none;
+}
+a:visited {
+  color: var(--main-color) ;
+  text-shadow: var(--blue) 2px 2px 3px;
 }
 a:hover,
 a:focus {
-  color: #23527c;
   text-decoration: underline;
 }
 a:focus {
@@ -978,7 +982,8 @@ hr {
   }
 }
 table {
-  background-color: transparent;
+  background-color: var(--light-accent);
+  border-radius: 4px;
 }
 table col[class*="col-"] {
   position: static;
@@ -3599,8 +3604,8 @@ h1 {
 h2, h2 a{
   font-weight: 400;
   font-size: 25px;
-  color: var(--light-shades);
-  text-shadow: var(--rose) 2px 2px 3px;
+  color: var(--dark-shades);
+  text-shadow: var(--dark-accent) 1px 2px 2px;
   text-decoration: none !important;
   font-variant-caps: small-caps;
 }
@@ -3652,6 +3657,9 @@ footer{
 #copyright {
   width: 100%;
   background-color: var(--main-color);
+}
+#copyright a {
+  color: var(--light-accent);
 }
 /*@media (prefers-color-scheme : dark) {
     h1 {

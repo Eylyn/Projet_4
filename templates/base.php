@@ -6,7 +6,7 @@
     <title><?= $title ?></title>
 
     <link href="<?= $style ?>.css" rel="stylesheet" />
-    <link href="public/css//bootstrap.css" rel="stylesheet">
+    <link href="public/css/bootstrap.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Lato&display=swap" rel="stylesheet">
     <link rel="icon" href="public/images/logo-light.png">
     <script src="public/js/tinymce/js/tinymce/tinymce.min.js"></script>
@@ -49,8 +49,8 @@
             mode: "specific_textareas",
             language: 'fr_FR',
             editor_selector: "wysiwygComment",
-            plugins: ' autosave colorpicker emoticons preview textcolor wordcount',
-            toolbar: 'bold italic underline',
+            plugins: ' autosave link colorpicker emoticons preview textcolor wordcount',
+            toolbar: 'bold italic underline | link',
             skin: 'commentDark',
             content_css: 'commentDark',
             browser_spellcheck: true,
@@ -63,15 +63,15 @@
 <body>
     <header>
         <nav class="navbar navbar-default navbar-fixed-top">
-            <img class="navbar-brand" src="public/images/logo-dark.png" alt="Logo">
-            <div class="container-fluid" id="menu-principal">
+            <a href="index.php"><img class="navbar-brand  hidden-xs" src="public/images/logo-dark.png" alt="Logo"> </a>
+            <div class="container-fluid col-sm-10 col-xs-12" id="menu-principal">
                 <ul class="nav">
                     <li class="nav-item"><a href="index.php"><img src="public/icones/home.svg" alt="accueil" class="icone"> Accueil</a></li>
                     <?php
                     if ($this->session->get('pseudo')) {
                     ?>
                         <li class="nav-item"><a href="index.php?route=profile"><img src="public/icones/profile.svg" alt="profil" class="icone"> Mon profil</a></li>
-                        <li class="nav-item"><a href="index.php?route=logout"><img src="public/icones/logout.svg" alt="deconnexion" class="icone"> Se deconnecter</a></li>
+                        <li class="nav-item"><a href="index.php?route=logout"><img src="public/icones/logout.svg" alt="deconnexion" class="icone"> Se déconnecter</a></li>
                         <?php if ($this->session->get('role') === 'Administrateur') { ?>
                             <li class="nav-item"><a href="index.php?route=administration"><img src="public/icones/admin.svg" alt="administration" class="icone"> Administration</a></li>
                         <?php

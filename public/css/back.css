@@ -1,0 +1,58 @@
+:root
+{
+    --light-shades : rgb(90, 173, 183);
+    --light-accent: rgb(186, 227, 227);
+    --main-color: rgb(166, 115,144);
+    --brown: rgb(92, 68, 84);
+    --dark-accent: rgb(40, 121, 171);
+    --darkgreyblue: rgb(64, 60, 83);
+    --dark-shades: rgb(25, 40, 78);
+    --titles : 'Cabin Sketch', sans-serif;
+    --bodyFont : 'Lato', sans-serif;
+}
+
+body {
+    background-image: url(../images/header-image.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 !important;
+}
+.enTete.home {
+    height: 80vh;
+}
+
+#content{
+    padding: 30px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--light-shades);
+    color: var(--light-accent);
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+thead tr{
+    background-color: var(--dark-shades);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+}
+td:first-of-type, td:last-of-type {
+    border-left: none !important;
+    border-right: none !important;
+}
+td {
+    padding: 5px 10px !important;
+}
+thead td {
+    border-left: solid var(--light-accent);
+    border-right: solid var(--light-accent);
+}
+tbody td {
+    color: var(--light-shades);
+    border-bottom: solid var(--light-shades);
+}
+td a {
+    color: var(--dark-shades) !important;
+}
+

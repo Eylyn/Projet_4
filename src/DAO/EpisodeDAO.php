@@ -42,6 +42,12 @@ class EpisodeDAO extends DAO
         return $this->buildObject($episode);
     }
 
+    public function getMaxId()
+    {
+        $sql2 = 'SELECT MAX(id) FROM episode';
+        $this->createQuery($sql2);
+    }
+
     public function addEpisode(Parameter $post)
     {
         $sql = 'INSERT INTO episode(title, content, createdAt) VALUES (?, ?, NOW())';

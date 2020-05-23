@@ -11,11 +11,11 @@ $this->style = 'public/css/style'; ?>
 
 <section id="content" class="container-fluid">
     <form action="index.php?route=register" method="post">
-        <label for="pseudo">Votre pseudo</label>
+        <label for="pseudo">Votre pseudo</label><br>
         <input type="text" name="pseudo" id="pseudo"><br>
-        <label for="password"> Votre Mot de passe</label>
+        <label for="password"> Votre Mot de passe (8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 symbole)</label><br>
         <input type="password" id="password" name="password"><br>
-        <label for="email">Votre Email</label>
+        <label for="email">Votre Email</label><br>
         <input type="email" id="email" name="email"><br>
         <input type="submit" value="S'inscrire" id="submit" name="submit">
     </form>

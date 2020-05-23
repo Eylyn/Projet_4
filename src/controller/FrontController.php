@@ -30,10 +30,12 @@ class FrontController extends Controller
         $episode = $this->episodeDAO->getEpisode($episodeId);
         $comments = $this->commentDAO->getCommentsFromEpisode($episodeId);
         $lastComments = $this->commentDAO->lastcomments();
+        $maxId = $this->episodeDAO->getMaxId();
         return $this->view->render('frontend/episode', [
             'episode' => $episode,
             'comments' => $comments,
-            'lastComments' => $lastComments
+            'lastComments' => $lastComments,
+            'maxId' => $maxId
         ]);
     }
 

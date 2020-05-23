@@ -9,7 +9,7 @@ class BackController extends Controller
 
     private function checkAdmin()
     {
-        if (!$this->session->get('pseudo') && !($this->session->get('role') === 'admin')) {
+        if ($this->session->get('role') !== 'Administrateur') {
             $this->session->set('loggedAdmin', 'Vous devez être connecté et avoir les droits pour accéder à cette page');
             header('Location: index.php');
         } else {

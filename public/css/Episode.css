@@ -17,8 +17,19 @@ body{
     border: solid 1.5px var(--brown);
     border-radius: 4px;
     box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-    padding: 5px;
+    padding: 5px 10px;
     min-width: 80%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.no-spaces {
+    padding: 0 !important;
+    margin: 5px 0;
+}
+.button-container {
+    display: flex;
+    justify-content: end;
 }
 .comment-section {
     width: 90%;
@@ -53,6 +64,7 @@ aside h5 {
 aside p {
     color: var(--dark-shades);
 }
+
 .last-comment{
     padding-bottom: 5px;
     border-bottom: solid var(--main-color);

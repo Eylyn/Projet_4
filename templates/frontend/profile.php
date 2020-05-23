@@ -1,5 +1,5 @@
 <?php $this->title =  "Votre Profil";
-$this->style = 'public/css/style'; ?>
+$this->style = 'public/css/back'; ?>
 
 
 <section class="enTete">
@@ -9,26 +9,25 @@ $this->style = 'public/css/style'; ?>
 </section>
 
 <section id="content" class="container-fluid">
-    <div class="info-perso">
+    <div class="info-perso col-md-6 col-xs-12">
         <?= $this->session->show('updatePassword'); ?><br>
         <h2>Pseudo : <?= $this->session->get('pseudo'); ?></h2>
         <p>Inscrit le : <?= $this->session->get('createdAt'); ?></p>
         <p>Dernière connexion le : <?= $this->session->get('lastConnection'); ?></p>
         <p>Role : <?= $this->session->get('role'); ?></p>
 
-        <a href="index.php?route=updatePassword">Modifier mon mot de passe</a>
+        <a href="index.php?route=updatePassword"><img src="public/icones/user-edit-solid.svg" alt="modifier" class="icone"> Modifier mon mot de passe</a><br>
         <?php
         if ($this->session->get('role') != 'Administrateur') {
         ?>
-            <a href="index.php?route=deleteAccount">Supprimer mon compte</a>
+            <a href="index.php?route=deleteAccount"><img src="public/icones/deleteAccount.svg" alt="supprimer" class="icone"> Supprimer mon compte</a>
         <?php } ?>
     </div>
-    <div class="posted-comments">
+    <div class="posted-comments col-md-6 col-sm-12">
         <h3>Comentaires postés</h3>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Article</th>
                     <th>Contenu</th>
                     <th>Posté le : </th>
                     <th>Lien vers l'article</th>
@@ -40,7 +39,6 @@ $this->style = 'public/css/style'; ?>
             ?>
                 <tbody>
                     <tr>
-                        <td></td>
                         <td><?= htmlspecialchars(html_entity_decode($comment->getContent())); ?> </td>
                         <td><?= htmlspecialchars($comment->getCreatedAt()); ?> </td>
                         <td><a href="index.php?route=episode&episodeId=<?= htmlspecialchars($comment->getEpisodeId()); ?>"> Article n° <?= htmlspecialchars($comment->getEpisodeId()); ?></a></td>
