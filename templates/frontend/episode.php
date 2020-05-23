@@ -1,7 +1,6 @@
 <?php $this->title = 'Episode';
 $this->style = 'public/css/episode'; ?>
 
-<?= $this->session->show('setFlag'); ?><br>
 
 <section class="enTete">
     <div class="container">
@@ -9,7 +8,10 @@ $this->style = 'public/css/episode'; ?>
     </div>
 </section>
 
+<?= $this->session->show('addComment'); ?>
+<?= $this->session->show('setFlag'); ?>
 <section id="content" class="container-fluid">
+
     <div class="col-md-9 col-xs-12">
         <div class="singleEpisode">
             <?= htmlspecialchars_decode($episode->getContent()); ?>
@@ -40,7 +42,7 @@ $this->style = 'public/css/episode'; ?>
             <span class="next col-xs-6">
                 <?php
                 $next = ($episode->getId() + 1);
-                if ($next >= $maxId) {
+                if ($next > $maxId) {
                 ?>
                     <a href="index.php?route=episode&episodeId=<?= $next; ?>">Episode Suivant <img src="public/icones/next.svg" alt="icone-suivant" class="icone"> </a>
                 <?php
@@ -50,7 +52,7 @@ $this->style = 'public/css/episode'; ?>
             </span>
         </div>
         <div class="comment-section">
-            <h2>Ajouter un commentaire</h2>
+            <h2 id="add-comment">Ajouter un commentaire</h2>
             <?php
             if ($this->session->get('pseudo')) {
                 include('formComment.php');
@@ -62,12 +64,14 @@ $this->style = 'public/css/episode'; ?>
             <?php
             }
             ?>
-            <h2>Commentaires</h2>
+
+            <h2 id="comments">Commentaires</h2>
+
             <?php
             foreach ($comments as $comment) {
             ?>
                 <div class="comments" id="<?= $comment->getId(); ?>">
-                    <h4><?= htmlspecialchars($comment->getPseudo()); ?></h4>
+                    <h3><?= htmlspecialchars($comment->getPseudo()); ?> :</h3>
                     <p><?= htmlspecialchars(html_entity_decode($comment->getContent())); ?></p>
                     <p>Posté le <?= $comment->getCreatedAt(); ?></p>
                     <p><img src="public/icones/flag.svg" alt="drapeau" class="icone"> <?= htmlspecialchars($comment->isFlag()); ?></p>
@@ -87,7 +91,7 @@ $this->style = 'public/css/episode'; ?>
                 foreach ($lastComments as $lastComment) {
                 ?>
                     <div class="last-comment">
-                        <h5><?= $lastComment->getCreatedAt(); ?></h5>
+                        <h4><?= $lastComment->getCreatedAt(); ?></h4>
                         <p><?= htmlspecialchars($lastComment->getContent()); ?></p>
                         <p><?= htmlspecialchars($lastComment->getPseudo()); ?></p>
                         <a href="index.php?route=episode&episodeId=<?= $lastComment->getEpisodeId(); ?>#<?= $lastComment->getId(); ?>">Lire le commentaire</a>

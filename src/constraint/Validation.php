@@ -20,6 +20,7 @@ class Validation
             $userValidation = new UserValidation();
             $errors = $userValidation->check($data);
             return $errors;
+            echo 'bla bla bla';
         }
     }
 }

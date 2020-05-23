@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
 
     <link href="<?= $style ?>.css" rel="stylesheet" />
@@ -87,12 +88,11 @@
                     ?>
                 </ul>
             </div>
-            <div class="messages">
                 <?= $this->session->show('register'); ?>
                 <?= $this->session->show('login'); ?>
                 <?= $this->session->show('logout'); ?>
                 <?= $this->session->show('deleteAccount'); ?>
-            </div>
+
         </nav>
     </header>
 

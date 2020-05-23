@@ -1,7 +1,6 @@
 <?php
 $this->title = 'Accueil';
-$this->style = 'public/css/style';
-$this->enTete = '' ?>
+$this->style = 'public/css/style';?>
 
 <section class="enTete home">
     <div class="container">
@@ -11,6 +10,7 @@ $this->enTete = '' ?>
 </section>
 
 <section id="content" class="container-fluid">
+
     <?php
     foreach ($episodes as $episode) {
     ?>

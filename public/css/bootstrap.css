@@ -14,13 +14,6 @@
     --main-color: rgb(166, 115,144);
     --dark-accent: rgb(40, 121, 171);
     --dark-shades: rgb(32, 48, 92);
-    --blue : rgb(62, 152, 153);
-    --beige: rgb(205, 198, 192);
-    --rose: rgb(166, 117,147);
-    --brown: rgb(92, 68, 84);
-    --bluegreen: rgb(30, 124, 149);
-    --darkgreyblue: rgb(64, 60, 83);
-    --darkbluegreen: rgb(1, 57, 71);
     --titles : 'Cabin Sketch', sans-serif;
     --bodyFont : 'Lato', sans-serif;
 }
@@ -62,7 +55,7 @@ a {
 }
 a:visited {
   color: var(--main-color) ;
-  text-shadow: var(--blue) 2px 2px 3px;
+  text-shadow: var(--dark-shades) 2px 2px 3px;
 }
 a:active,
 a:hover {
@@ -237,7 +230,7 @@ a {
 }
 a:visited {
   color: var(--main-color) ;
-  text-shadow: var(--blue) 2px 2px 3px;
+  text-shadow: var(--dark-shades) 2px 2px 3px;
 }
 a:hover,
 a:focus {
@@ -3611,16 +3604,16 @@ h2, h2 a{
 }
 h3 {
   font-size: 18px;
-  color: var(--bluegreen);
+  color: var(--dark-shades);
   font-variant-caps: small-caps;
 }
 h4 {
-  color: var(--brown);
+  color: var(--light-shades);
   font-size: 15px;
 }
 
 nav{
-  box-shadow: var(--brown) 2px 2px 5px ;
+  box-shadow: var(--dark-shades) 2px 2px 5px ;
   display: flex;
 }
 .enTete {
